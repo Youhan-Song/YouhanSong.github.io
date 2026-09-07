@@ -5,7 +5,7 @@ Artificial Intelligence, Computer Vision, Deep & Machine Learning, Robotics,
 and Autonomous Systems.
 
 ### 🔗 Live site
-**https://yhsong12345.github.io/YouhanSong.github.io/**
+**https://youhan-song.github.io/YouhanSong.github.io/**
 
 ---
 
