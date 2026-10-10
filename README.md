@@ -5,7 +5,7 @@ Artificial Intelligence, Computer Vision, Deep & Machine Learning, Robotics,
 and Autonomous Systems.
 
 ### 🔗 Live site
-**https://youhan-song.github.io/YouhanSong.github.io/**
+**https://Youhan-Song.github.io/YouhanSong.github.io/**
 
 ---
 
@@ -71,7 +71,7 @@ No build tooling is needed — it's a static site. Clone the repo and open
 `index.html` directly, or serve the folder to preview it as it appears when deployed:
 
 ```bash
-git clone https://github.com/yhsong12345/YouhanSong.github.io.git
+git clone https://github.com/Youhan-Song/YouhanSong.github.io.git
 cd YouhanSong.github.io
 
 # Option 1: open index.html in your browser
@@ -84,7 +84,7 @@ python -m http.server 8000
 ## Contact
 
 - **Email:** youhans1997@gmail.com
-- **GitHub:** [@yhsong12345](https://github.com/yhsong12345)
+- **GitHub:** [@Youhan-Song](https://github.com/Youhan-Song)
 - **LinkedIn:** [youhan-song](https://www.linkedin.com/in/youhan-song-893771243/)
 
 ## Credits & license
