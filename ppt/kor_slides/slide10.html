@@ -55,7 +55,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("https://page.gensparksite.com/slides_images/2ade8d0d9147df5250666843cb12f339.webp");
+            background-image: url("assets/bg_robot.jpg");
             background-size: cover;
             background-position: center;
             opacity: 0.15;
@@ -90,8 +90,7 @@
             font-weight: 600;
             display: inline-flex;
             align-items: center;
-            margin-right: 4px;
-            margin-bottom: 4px;
+            margin: 0;
         }
 
         .chart-container {
@@ -137,6 +136,8 @@
             transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
     </style>
+<link href="slide-common.css" rel="stylesheet"/>
+<script defer src="slide-common.js"></script>
 </head>
 <body>
 <div class="slide-container">
@@ -146,31 +147,31 @@
 <div class="absolute right-0 top-0 w-80 h-80 rounded-full blur-3xl pointer-events-none" style="background-color: rgba(6, 182, 212, 0.1);"></div>
 
 <!-- Header -->
-<div class="relative z-10 px-10 pt-5 mb-1 flex justify-between items-start">
+<div class="relative z-10 px-10 pt-5 mb-2 flex justify-between items-start">
 <div>
-<div class="flex items-center space-x-3 text-cyan-400 mb-0.5">
-<span class="px-2 py-0.5 border border-cyan-500 rounded text-xs font-bold uppercase tracking-wider" style="background-color: rgba(6, 182, 212, 0.1);">Project 06</span>
+<div class="flex items-center space-x-3 mb-1">
+<span class="px-2 py-0.5 border border-cyan-500 rounded text-xs font-bold uppercase tracking-wider text-cyan-400" style="background-color: rgba(6, 182, 212, 0.1);">Project 10</span>
 <span class="text-xs text-gray-400 uppercase tracking-widest">Safety Monitoring</span>
 </div>
-<h1 class="text-3xl font-black text-white font-['Montserrat'] mb-0.5">구미메타버스</h1>
-<div class="flex items-center space-x-3">
+<h1 class="text-3xl font-black text-white font-['Montserrat'] leading-tight">구미메타버스</h1>
+<div class="flex items-center space-x-3 mt-1">
 <p class="text-sm text-gray-300 font-light">Worker Safety Equipment Detection Model</p>
 <div class="h-3 w-px bg-gray-600"></div>
-<span class="text-xs text-cyan-300 font-medium bg-cyan-900/30 px-2 py-0.5 rounded-full border border-cyan-500/30">물류혁명코리아</span>
+<span class="text-xs text-cyan-300 font-medium px-2 py-0.5 rounded-full border border-cyan-500/30" style="background-color: rgba(15, 23, 42, 0.6);">물류혁명코리아</span>
 </div>
 </div>
-<div class="text-right">
+<div class="text-right shrink-0 pl-4">
 <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg border border-slate-700" style="background-color: rgba(30, 41, 59, 0.8);">
 <i class="fa-regular fa-calendar text-cyan-400 text-xs"></i>
-<p class="text-xs font-medium text-white">2024.01 - 2024.09</p>
+<p class="text-xs font-medium text-white whitespace-nowrap">2024.01 - 2024.09</p>
 </div>
 </div>
 </div>
 
 <!-- Main Content -->
-<div class="relative z-10 flex flex-1 px-10 pb-5 gap-4">
+<div class="relative z-10 flex flex-1 min-h-0 px-10 pb-5 gap-4">
 <!-- Left Column: Project Info -->
-<div class="w-1/3 flex flex-col gap-2">
+<div class="w-1/3 flex flex-col gap-2 min-h-0">
 <!-- Project Overview -->
 <div class="glass-panel p-3">
 <h3 class="text-xs font-bold text-white mb-1 flex items-center">
@@ -208,8 +209,8 @@ ONNX/OpenVINO 기반 모델 경량화 배포
                     </h3>
 
 <!-- Challenge 1 -->
-<div class="mb-2 p-2 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
-<div class="flex items-center justify-between mb-1.5">
+<div class="mb-1.5 p-2 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
+<div class="flex items-center justify-between mb-1">
 <span class="text-xs font-bold text-cyan-300 uppercase">Data Collection</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full bg-green-500/20 text-green-300 border border-green-500/30">On-site</span>
 </div>
@@ -224,8 +225,8 @@ ONNX/OpenVINO 기반 모델 경량화 배포
 </div>
 
 <!-- Challenge 2 -->
-<div class="mb-2 p-2 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
-<div class="flex items-center justify-between mb-1.5">
+<div class="mb-1.5 p-2 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
+<div class="flex items-center justify-between mb-1">
 <span class="text-xs font-bold text-purple-300 uppercase">Model Selection</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">Benchmark</span>
 </div>
@@ -240,8 +241,8 @@ ONNX/OpenVINO 기반 모델 경량화 배포
 </div>
 
 <!-- Challenge 3 -->
-<div class="mb-2 p-2 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
-<div class="flex items-center justify-between mb-1.5">
+<div class="mb-1.5 p-2 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
+<div class="flex items-center justify-between mb-1">
 <span class="text-xs font-bold text-orange-300 uppercase">Optimization</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">ONNX</span>
 </div>
@@ -257,7 +258,7 @@ ONNX/OpenVINO 기반 모델 경량화 배포
 
 <div class="mt-auto">
 <h4 class="text-xs font-bold text-gray-500 uppercase mb-1">Tech Stack</h4>
-<div class="flex flex-wrap gap-0.5">
+<div class="flex flex-wrap gap-1">
 <span class="tech-tag"><i class="fa-brands fa-python mr-1"></i>Python</span>
 <span class="tech-tag"><i class="fa-solid fa-fire mr-1 text-orange-400"></i>PyTorch</span>
 <span class="tech-tag"><i class="fa-solid fa-bolt mr-1 text-yellow-400"></i>ONNX</span>
@@ -268,7 +269,7 @@ ONNX/OpenVINO 기반 모델 경량화 배포
 </div>
 
 <!-- Right Column: Metrics & Demo -->
-<div class="w-2/3 flex flex-col gap-2">
+<div class="w-2/3 flex flex-col gap-2 min-h-0">
 <!-- Demo Section -->
 <div class="flex flex-col">
 <h3 class="text-sm font-bold text-white mb-1.5 pl-1 font-['Montserrat']">Demonstration</h3>

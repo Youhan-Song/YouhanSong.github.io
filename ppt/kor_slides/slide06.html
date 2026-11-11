@@ -57,7 +57,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("https://page.gensparksite.com/slides_images/2ade8d0d9147df5250666843cb12f339.webp");
+            background-image: url("assets/bg_robot.jpg");
             background-size: cover;
             background-position: center;
             opacity: 0.15;
@@ -92,8 +92,7 @@
             font-weight: 600;
             display: inline-flex;
             align-items: center;
-            margin-right: 4px;
-            margin-bottom: 4px;
+            margin: 0;
         }
 
         .chart-container {
@@ -108,7 +107,7 @@
         }
 
         .stat-label {
-            font-size: 9px;
+            font-size: 10px;
             color: #94a3b8;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -150,6 +149,8 @@
             border-radius: 8px;
         }
     </style>
+<link href="slide-common.css" rel="stylesheet"/>
+<script defer src="slide-common.js"></script>
 </head>
 <body>
 <div class="slide-container">
@@ -159,32 +160,32 @@
 <div class="absolute right-0 top-0 w-80 h-80 rounded-full blur-3xl pointer-events-none" style="background-color: rgba(6, 182, 212, 0.1);"></div>
 
 <!-- Header -->
-<div class="relative z-10 px-10 pt-5 mb-1 flex justify-between items-start">
+<div class="relative z-10 px-10 pt-5 mb-2 flex justify-between items-start">
 <div>
-<div class="flex items-center space-x-3 text-cyan-400 mb-0.5">
-<span class="px-2 py-0.5 border border-cyan-500 rounded text-xs font-bold uppercase tracking-wider" style="background-color: rgba(6, 182, 212, 0.1);">Project 02</span>
+<div class="flex items-center space-x-3 mb-1">
+<span class="px-2 py-0.5 border border-cyan-500 rounded text-xs font-bold uppercase tracking-wider text-cyan-400" style="background-color: rgba(6, 182, 212, 0.1);">Project 06</span>
 <span class="text-xs text-gray-400 uppercase tracking-widest">Surveillance System</span>
 </div>
-<h1 class="text-3xl font-black text-white font-['Montserrat'] mb-0.5">SeeU Track</h1>
-<div class="flex items-center space-x-3">
-<p class="text-sm text-gray-300 font-light">Vehicle & Person Detection & Recognition System</p>
+<h1 class="text-3xl font-black text-white font-['Montserrat'] leading-tight">SeeU Track</h1>
+<div class="flex items-center space-x-3 mt-1">
+<p class="text-sm text-gray-300 font-light">Vehicle &amp; Person Detection &amp; Recognition System</p>
 <div class="h-3 w-px bg-gray-600"></div>
-<span class="text-xs text-cyan-300 font-medium bg-cyan-900/30 px-2 py-0.5 rounded-full border border-cyan-500/30">베트남 경찰국</span>
-<span class="text-xs text-cyan-300 font-medium bg-cyan-900/30 px-2 py-0.5 rounded-full border border-cyan-500/30">TriNam</span>
+<span class="text-xs text-cyan-300 font-medium px-2 py-0.5 rounded-full border border-cyan-500/30" style="background-color: rgba(15, 23, 42, 0.6);">베트남 경찰국</span>
+<span class="text-xs text-cyan-300 font-medium px-2 py-0.5 rounded-full border border-cyan-500/30" style="background-color: rgba(15, 23, 42, 0.6);">TriNam</span>
 </div>
 </div>
-<div class="text-right">
+<div class="text-right shrink-0 pl-4">
 <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg border border-slate-700" style="background-color: rgba(30, 41, 59, 0.8);">
 <i class="fa-regular fa-calendar text-cyan-400 text-xs"></i>
-<p class="text-xs font-medium text-white">2024.11 - 2025.05</p>
+<p class="text-xs font-medium text-white whitespace-nowrap">2024.11 - 2025.05</p>
 </div>
 </div>
 </div>
 
 <!-- Main Content -->
-<div class="relative z-10 flex flex-1 px-10 pb-5 gap-4">
+<div class="relative z-10 flex flex-1 min-h-0 px-10 pb-5 gap-4">
 <!-- Left Column: Project Info -->
-<div class="w-1/3 flex flex-col gap-2">
+<div class="w-1/3 flex flex-col gap-2 min-h-0">
 <!-- Project Overview -->
 <div class="glass-panel p-3">
 <h3 class="text-xs font-bold text-white mb-1 flex items-center">
@@ -192,7 +193,7 @@
                         주요내용
                     </h3>
 <p class="text-xs text-gray-300 leading-relaxed">
-CCTV 시스템을 활용하여 도로 위의 자동차와 사람을 탐지하고, 각 객체의 속성 정보를 추출하는 AI 모델을 개발하는 프로젝트입니다. 번호판 탐지 및 인식, 차량 속성 인식, 사람 속성 인식 모델을 개발했습니다.
+CCTV 영상에서 도로 위 차량과 사람을 탐지하고 번호판·차량 속성·사람 속성을 인식하는 AI 모델을 개발한 프로젝트입니다.
 </p>
 </div>
 
@@ -226,8 +227,8 @@ VLM 기반 Pseudo 라벨링 및 속성 인식 모델 개발
                     </h3>
 
 <!-- Challenge 1 -->
-<div class="mb-2 p-2 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
-<div class="flex items-center justify-between mb-1.5">
+<div class="mb-1.5 p-2 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
+<div class="flex items-center justify-between mb-1">
 <span class="text-xs font-bold text-cyan-300 uppercase">Local Data</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full bg-green-500/20 text-green-300 border border-green-500/30">Solved</span>
 </div>
@@ -242,8 +243,8 @@ VLM 기반 Pseudo 라벨링 및 속성 인식 모델 개발
 </div>
 
 <!-- Challenge 2 -->
-<div class="mb-2 p-2 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
-<div class="flex items-center justify-between mb-1.5">
+<div class="mb-1.5 p-2 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
+<div class="flex items-center justify-between mb-1">
 <span class="text-xs font-bold text-purple-300 uppercase">Model Selection</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">YOLOv11</span>
 </div>
@@ -258,8 +259,8 @@ VLM 기반 Pseudo 라벨링 및 속성 인식 모델 개발
 </div>
 
 <!-- Challenge 3 -->
-<div class="mb-2 p-2 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
-<div class="flex items-center justify-between mb-1.5">
+<div class="mb-1.5 p-2 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
+<div class="flex items-center justify-between mb-1">
 <span class="text-xs font-bold text-orange-300 uppercase">Person Attributes</span>
 <span class="text-xs px-1.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">VLM</span>
 </div>
@@ -275,7 +276,7 @@ VLM 기반 Pseudo 라벨링 및 속성 인식 모델 개발
 
 <div class="mt-auto">
 <h4 class="text-xs font-bold text-gray-500 uppercase mb-1">Tech Stack</h4>
-<div class="flex flex-wrap gap-0.5">
+<div class="flex flex-wrap gap-1">
 <span class="tech-tag"><i class="fa-solid fa-fire mr-1 text-orange-400"></i>PyTorch</span>
 <span class="tech-tag"><i class="fa-solid fa-diagram-project mr-1 text-blue-300"></i>ONNX</span>
 <span class="tech-tag"><i class="fa-solid fa-bolt mr-1 text-yellow-300"></i>OpenVINO</span>
@@ -287,9 +288,9 @@ VLM 기반 Pseudo 라벨링 및 속성 인식 모델 개발
 </div>
 
 <!-- Right Column: Metrics & Demo -->
-<div class="w-2/3 flex flex-col gap-2">
+<div class="w-2/3 flex flex-col gap-2 min-h-0">
 <!-- Demo Section -->
-<div class="flex-[1.2] flex flex-col min-h-0">
+<div class="flex-1 flex flex-col min-h-0">
 <h3 class="text-sm font-bold text-white mb-1.5 pl-1 font-['Montserrat'] flex items-center">
 <i class="fa-solid fa-images text-cyan-400 mr-1.5 text-xs"></i>
 Demonstration
@@ -315,12 +316,12 @@ Demonstration
 <div class="metric-card">
 <div class="chart-container" id="chartDetection"></div>
 <p class="highlight-value text-lg">96.8<span class="text-xs text-gray-500">%</span></p>
-<p class="stat-label">Vehicle Det. <span class="text-green-400">+10%</span></p>
+<p class="stat-label">Vehicle Det. <span class="text-green-400 normal-case">+10%p</span></p>
 </div>
 <div class="metric-card">
 <div class="chart-container" id="chartPerson"></div>
 <p class="highlight-value text-lg">97.2<span class="text-xs text-gray-500">%</span></p>
-<p class="stat-label">Person Det. <span class="text-green-400">+7%</span></p>
+<p class="stat-label">Person Det. <span class="text-green-400 normal-case">+7%p</span></p>
 </div>
 <div class="metric-card">
 <div class="chart-container" id="chartLPD"></div>
@@ -330,7 +331,7 @@ Demonstration
 <div class="metric-card">
 <div class="chart-container" id="chartLPR"></div>
 <p class="highlight-value text-lg">97.84<span class="text-xs text-gray-500">%</span></p>
-<p class="stat-label">LP Recog. (OCR) <span class="text-green-400">+13%</span></p>
+<p class="stat-label">LP Recog. (OCR) <span class="text-green-400 normal-case">+13%p</span></p>
 </div>
 
 <!-- Attribute Metrics -->
@@ -350,7 +351,7 @@ Demonstration
 <div class="flex items-center mb-0.5">
 <i class="fa-solid fa-person text-purple-400 mr-1.5 text-xs"></i>
 <span class="text-xs text-white font-bold">Person Attr. (VLM)</span>
-<span class="text-xs font-bold text-purple-300 ml-auto">82.34% <span class="text-green-400">+12%</span></span>
+<span class="text-xs font-bold text-purple-300 ml-auto">82.34% <span class="text-green-400 normal-case">+12%p</span></span>
 </div>
 <div class="progress-bg">
 <div class="progress-fill" style="width: 82.34%; background-color: #a855f7;"></div>

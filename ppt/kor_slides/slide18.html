@@ -31,7 +31,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("https://page.gensparksite.com/slides_images/6236e6a1d67135e8c4e293b56b026db3.webp");
+            background-image: url("assets/bg_6236.jpg");
             background-size: cover;
             background-position: center;
             opacity: 0.15;
@@ -85,6 +85,8 @@
             }
         }
     </style>
+<link href="slide-common.css" rel="stylesheet"/>
+<script defer src="slide-common.js"></script>
 </head>
 <body>
 <div class="slide-container">
@@ -93,58 +95,63 @@
 <div class="absolute -left-20 -bottom-20 w-96 h-96 rounded-full blur-3xl pointer-events-none" style="background-color: rgba(37, 99, 235, 0.1);"></div>
 <div class="absolute right-0 top-0 w-80 h-80 rounded-full blur-3xl pointer-events-none" style="background-color: rgba(6, 182, 212, 0.1);"></div>
 <!-- Header -->
-<div class="relative z-10 px-10 pt-3 mb-0 flex justify-between items-start">
+<div class="relative z-10 px-10 pt-5 mb-2 flex justify-between items-start">
 <div>
-<div class="flex items-center space-x-3 text-cyan-400 mb-0">
-<span class="px-2 py-0.5 border border-cyan-500 rounded text-[10px] font-bold uppercase tracking-wider" style="background-color: rgba(6, 182, 212, 0.1);">Latest Project</span>
-<span class="text-[10px] text-gray-400 uppercase tracking-widest">AI-Powered Video Surveillance &amp; Analytics</span>
+<div class="flex items-center space-x-3 mb-1">
+<span class="px-2 py-0.5 border border-cyan-500 rounded text-xs font-bold uppercase tracking-wider text-cyan-400" style="background-color: rgba(6, 182, 212, 0.1);">Project 03</span>
+<span class="text-xs text-gray-400 uppercase tracking-widest">AI-Powered Video Surveillance &amp; Analytics</span>
 </div>
-<h1 class="text-2xl font-black text-white font-['Montserrat'] mb-0">스마트 관제 시스템</h1>
-<p class="text-xs text-gray-300 font-light">Advanced AI CCTV Monitoring System for Public Safety</p>
-</div>
-<div class="text-right">
-<div class="inline-flex items-center space-x-2 px-2 py-1 rounded-lg border border-slate-700" style="background-color: rgba(30, 41, 59, 0.8);">
-<i class="fa-regular fa-calendar text-cyan-400 text-[10px]"></i>
-<p class="text-[10px] font-medium text-white">2025.11 - Present</p>
+<h1 class="text-3xl font-black text-white font-['Montserrat'] leading-tight">스마트 관제 시스템</h1>
+<div class="flex items-center space-x-3 mt-1">
+<p class="text-sm text-gray-300 font-light">Advanced AI CCTV Monitoring System for Public Safety</p>
+<div class="h-3 w-px bg-gray-600"></div>
+<span class="text-xs text-cyan-300 font-medium px-2 py-0.5 rounded-full border border-cyan-500/30" style="background-color: rgba(15, 23, 42, 0.6);">사내 R&amp;D</span>
 </div>
 </div>
+<div class="text-right shrink-0 pl-4">
+<div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg border border-slate-700" style="background-color: rgba(30, 41, 59, 0.8);">
+<i class="fa-regular fa-calendar text-cyan-400 text-xs"></i>
+<p class="text-xs font-medium text-white whitespace-nowrap">2025.11 - 2026.09</p>
 </div>
+</div>
+</div>
+
 <!-- Main Content -->
-<div class="relative z-10 flex flex-1 px-10 pb-2 gap-3">
+<div class="relative z-10 flex flex-1 min-h-0 px-10 pb-5 gap-4">
 <!-- Left Column: Project Info & Tech Stack -->
-<div class="w-[45%] flex flex-col gap-2">
+<div class="w-[42%] flex flex-col gap-2 min-h-0">
 <!-- Project Overview -->
 <div class="glass-panel p-3">
-<h3 class="text-sm font-bold text-white mb-2 flex items-center">
-<i class="fa-solid fa-info-circle text-cyan-400 mr-2 text-sm"></i>
+<h3 class="text-xs font-bold text-white mb-1 flex items-center">
+<i class="fa-solid fa-info-circle text-cyan-400 mr-2 text-xs"></i>
                         주요내용
                     </h3>
-<p class="text-sm text-gray-300 leading-relaxed">
-공항이나 공공장소에서 사람 및 차량을 감지, 속성을 인식하여 관제센터에 실시간 정보를 제공하는 AI 기반 관제 시스템 R&D 프로젝트입니다.
+<p class="text-xs text-gray-300 leading-relaxed">
+공항·공공장소 CCTV에서 사람과 차량을 감지·추적하고 속성을 인식해 관제센터에 실시간 정보를 제공하는 AI 관제 시스템 R&amp;D 프로젝트입니다.
 </p>
 </div>
 
 <!-- 담당업무 -->
 <div class="glass-panel p-3">
-<h3 class="text-sm font-bold text-white mb-2 flex items-center">
-<i class="fa-solid fa-user-gear text-cyan-400 mr-2 text-sm"></i>
+<h3 class="text-xs font-bold text-white mb-1 flex items-center">
+<i class="fa-solid fa-user-gear text-cyan-400 mr-2 text-xs"></i>
                         담당업무
                     </h3>
-<ul class="space-y-1.5">
-<li class="text-sm text-gray-300 flex items-start">
-<i class="fa-solid fa-check text-cyan-400 mr-2 mt-0.5 text-xs"></i>
+<ul class="space-y-0.5">
+<li class="text-xs text-gray-300 flex items-start">
+<i class="fa-solid fa-check text-cyan-400 mr-1.5 mt-0.5 text-xs"></i>
 데이터 전처리 파이프라인 및 라벨링 시스템 구축
 </li>
-<li class="text-sm text-gray-300 flex items-start">
-<i class="fa-solid fa-check text-cyan-400 mr-2 mt-0.5 text-xs"></i>
+<li class="text-xs text-gray-300 flex items-start">
+<i class="fa-solid fa-check text-cyan-400 mr-1.5 mt-0.5 text-xs"></i>
 Detection/Recognition 모델 개발
 </li>
-<li class="text-sm text-gray-300 flex items-start">
-<i class="fa-solid fa-check text-cyan-400 mr-2 mt-0.5 text-xs"></i>
+<li class="text-xs text-gray-300 flex items-start">
+<i class="fa-solid fa-check text-cyan-400 mr-1.5 mt-0.5 text-xs"></i>
 VLM 기반 Pseudo 라벨링 및 속성 인식 모델 개발
 </li>
-<li class="text-sm text-gray-300 flex items-start">
-<i class="fa-solid fa-check text-cyan-400 mr-2 mt-0.5 text-xs"></i>
+<li class="text-xs text-gray-300 flex items-start">
+<i class="fa-solid fa-check text-cyan-400 mr-1.5 mt-0.5 text-xs"></i>
 모델 경량화 및 시스템 통합
 </li>
 </ul>
@@ -158,10 +165,10 @@ VLM 기반 Pseudo 라벨링 및 속성 인식 모델 개발
                     </h3>
 
 <!-- Challenge 1: Detection -->
-<div class="mb-2 p-2.5 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
+<div class="mb-1.5 px-2 py-1.5 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
 <div class="flex items-center justify-between mb-1">
 <span class="text-xs font-bold text-cyan-300 uppercase">Vehicle/Person Detection</span>
-<span class="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-300 border border-green-500/30">+11~13%</span>
+<span class="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-300 border border-green-500/30">+11~13%p</span>
 </div>
 <div class="flex items-start gap-2">
 <i class="fa-solid fa-triangle-exclamation text-red-400 text-xs mt-0.5"></i>
@@ -174,10 +181,10 @@ VLM 기반 Pseudo 라벨링 및 속성 인식 모델 개발
 </div>
 
 <!-- Challenge 2: Re-ID -->
-<div class="mb-2 p-2.5 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
+<div class="mb-1.5 px-2 py-1.5 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
 <div class="flex items-center justify-between mb-1">
 <span class="text-xs font-bold text-purple-300 uppercase">Person Re-ID</span>
-<span class="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-300 border border-green-500/30">+12%</span>
+<span class="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-300 border border-green-500/30">+12%p</span>
 </div>
 <div class="flex items-start gap-2">
 <i class="fa-solid fa-triangle-exclamation text-red-400 text-xs mt-0.5"></i>
@@ -189,7 +196,7 @@ VLM 기반 Pseudo 라벨링 및 속성 인식 모델 개발
 </div>
 
 <!-- Challenge 3: Brand/Color -->
-<div class="mb-2 p-2.5 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
+<div class="mb-1.5 px-2 py-1.5 rounded-lg border border-slate-700/50" style="background-color: rgba(15, 23, 42, 0.6);">
 <div class="flex items-center justify-between mb-1">
 <span class="text-xs font-bold text-orange-300 uppercase">Vehicle Brand/Color</span>
 <span class="text-xs px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">New</span>
@@ -205,28 +212,28 @@ VLM 기반 Pseudo 라벨링 및 속성 인식 모델 개발
 
 <div class="mt-auto">
 <h4 class="text-xs font-bold text-gray-500 uppercase mb-1.5">Tech Stack</h4>
-<div class="flex flex-wrap gap-1.5">
-<span class="tech-tag text-xs py-1 px-2"><i class="fa-solid fa-face-smile mr-1.5 text-yellow-400"></i>Hugging Face</span>
-<span class="tech-tag text-xs py-1 px-2"><i class="fa-solid fa-gauge-high mr-1.5 text-cyan-400"></i>vLLM</span>
-<span class="tech-tag text-xs py-1 px-2"><i class="fa-solid fa-fire mr-1.5 text-orange-400"></i>PyTorch</span>
-<span class="tech-tag text-xs py-1 px-2"><i class="fa-solid fa-bolt mr-1.5 text-blue-400"></i>OpenVINO</span>
-<span class="tech-tag text-xs py-1 px-2"><i class="fa-solid fa-diagram-project mr-1.5 text-green-400"></i>ONNX</span>
-<span class="tech-tag text-xs py-1 px-2"><i class="fa-brands fa-docker mr-1.5 text-sky-400"></i>Docker</span>
-<span class="tech-tag text-xs py-1 px-2"><i class="fa-solid fa-server mr-1.5 text-purple-400"></i>Slurm</span>
-<span class="tech-tag text-xs py-1 px-2"><i class="fa-solid fa-microchip mr-1.5 text-green-400"></i>H100/A100</span>
+<div class="flex flex-wrap gap-1">
+<span class="tech-tag"><i class="fa-solid fa-face-smile mr-1.5 text-yellow-400"></i>Hugging Face</span>
+<span class="tech-tag"><i class="fa-solid fa-gauge-high mr-1.5 text-cyan-400"></i>vLLM</span>
+<span class="tech-tag"><i class="fa-solid fa-fire mr-1.5 text-orange-400"></i>PyTorch</span>
+<span class="tech-tag"><i class="fa-solid fa-bolt mr-1.5 text-blue-400"></i>OpenVINO</span>
+<span class="tech-tag"><i class="fa-solid fa-diagram-project mr-1.5 text-green-400"></i>ONNX</span>
+<span class="tech-tag"><i class="fa-brands fa-docker mr-1.5 text-sky-400"></i>Docker</span>
+<span class="tech-tag"><i class="fa-solid fa-server mr-1.5 text-purple-400"></i>Slurm</span>
+<span class="tech-tag"><i class="fa-solid fa-microchip mr-1.5 text-green-400"></i>H100/A100</span>
 </div>
 </div>
 </div>
 </div>
 <!-- Right Column: Performance Metrics -->
-<div class="w-[55%] flex flex-col gap-2">
+<div class="w-[58%] flex flex-col gap-2 min-h-0">
 <div class="flex justify-between items-center pl-1">
 <h3 class="text-sm font-bold text-white font-['Montserrat']">Key Performance Indicators</h3>
 <span class="text-xs text-cyan-400 font-mono"><i class="fa-solid fa-check-circle mr-1"></i>Real-time 30+ FPS</span>
 </div>
 
 <!-- Compact KPI Grid -->
-<div class="glass-panel p-3 flex-1">
+<div class="glass-panel p-3">
 <!-- Detection Metrics Row -->
 <div class="mb-3">
 <h4 class="text-xs font-bold text-gray-400 uppercase mb-2 flex items-center">
@@ -235,19 +242,19 @@ VLM 기반 Pseudo 라벨링 및 속성 인식 모델 개발
 <div class="grid grid-cols-4 gap-2">
 <div class="bg-slate-800/60 rounded-lg p-2 text-center border border-cyan-500/20">
 <p class="text-lg font-bold text-cyan-300 font-['Montserrat']">95.8%</p>
-<p class="text-[10px] text-gray-400">Vehicle</p>
+<p class="text-[11px] text-gray-400">Vehicle</p>
 </div>
 <div class="bg-slate-800/60 rounded-lg p-2 text-center border border-blue-500/20">
 <p class="text-lg font-bold text-blue-300 font-['Montserrat']">95.2%</p>
-<p class="text-[10px] text-gray-400">Person</p>
+<p class="text-[11px] text-gray-400">Person</p>
 </div>
 <div class="bg-slate-800/60 rounded-lg p-2 text-center border border-purple-500/20">
 <p class="text-lg font-bold text-purple-300 font-['Montserrat']">94.5%</p>
-<p class="text-[10px] text-gray-400">LP Det.</p>
+<p class="text-[11px] text-gray-400">LP Det.</p>
 </div>
 <div class="bg-slate-800/60 rounded-lg p-2 text-center border border-emerald-500/20">
 <p class="text-lg font-bold text-emerald-300 font-['Montserrat']">94.5%</p>
-<p class="text-[10px] text-gray-400">LP Recog.</p>
+<p class="text-[11px] text-gray-400">LP Recog.</p>
 </div>
 </div>
 </div>
@@ -260,61 +267,74 @@ VLM 기반 Pseudo 라벨링 및 속성 인식 모델 개발
 <div class="grid grid-cols-3 gap-2">
 <div class="bg-slate-800/60 rounded-lg p-2 text-center border border-cyan-500/20">
 <p class="text-lg font-bold text-cyan-300 font-['Montserrat']">88.7%</p>
-<p class="text-[10px] text-gray-400">Person Re-ID</p>
+<p class="text-[11px] text-gray-400">Person Re-ID</p>
 </div>
 <div class="bg-slate-800/60 rounded-lg p-2 text-center border border-orange-500/20">
 <p class="text-lg font-bold text-orange-300 font-['Montserrat']">87.4%</p>
-<p class="text-[10px] text-gray-400">Vehicle Brand</p>
+<p class="text-[11px] text-gray-400">Vehicle Brand</p>
 </div>
 <div class="bg-slate-800/60 rounded-lg p-2 text-center border border-pink-500/20">
 <p class="text-lg font-bold text-pink-300 font-['Montserrat']">85.2%</p>
-<p class="text-[10px] text-gray-400">Vehicle Color</p>
+<p class="text-[11px] text-gray-400">Vehicle Color</p>
 </div>
 </div>
 </div>
 
 <!-- Pipeline & Optimization Row -->
-<div class="mb-3">
+<div>
 <h4 class="text-xs font-bold text-gray-400 uppercase mb-2 flex items-center">
 <i class="fa-solid fa-bolt text-yellow-400 mr-2"></i>Pipeline Optimization
 </h4>
 <div class="grid grid-cols-3 gap-2">
 <div class="bg-green-900/30 rounded-lg p-2 text-center border border-green-500/30">
 <p class="text-lg font-bold text-green-300 font-['Montserrat']">+7%</p>
-<p class="text-[10px] text-green-200">Speed Up</p>
+<p class="text-[11px] text-green-200">Speed Up</p>
 </div>
 <div class="bg-blue-900/30 rounded-lg p-2 text-center border border-blue-500/30">
 <p class="text-lg font-bold text-blue-300 font-['Montserrat']">+40%</p>
-<p class="text-[10px] text-blue-200">Labeling Prod.</p>
+<p class="text-[11px] text-blue-200">Labeling Prod.</p>
 </div>
 <div class="bg-blue-900/30 rounded-lg p-2 text-center border border-blue-500/30">
 <p class="text-lg font-bold text-blue-300 font-['Montserrat']">-15%</p>
-<p class="text-[10px] text-blue-200">Preproc. Time</p>
+<p class="text-[11px] text-blue-200">Preproc. Time</p>
 </div>
 </div>
 </div>
 
-<!-- In Development Row -->
-<div>
+</div>
+<!-- Demo + Advanced Modules -->
+<div class="grid grid-cols-2 gap-3 flex-1 min-h-0">
+<div class="glass-panel p-2 flex flex-col min-h-0">
+<h4 class="text-xs font-bold text-gray-400 uppercase mb-1.5 pl-1 flex items-center">
+<i class="fa-solid fa-circle-play text-cyan-400 mr-2"></i>Demonstration
+</h4>
+<div class="flex-1 min-h-0 rounded-lg overflow-hidden relative" style="background-color: rgba(15, 23, 42, 0.8);">
+<iframe src="https://drive.google.com/file/d/1Ecv8cKp71eS8-UNeie4F8kqw3AyxBHe9/preview" class="w-full h-full border-0" allow="autoplay" allowfullscreen></iframe>
+</div>
+</div>
+<div class="glass-panel p-3 flex flex-col min-h-0">
 <h4 class="text-xs font-bold text-gray-400 uppercase mb-2 flex items-center">
 <i class="fa-solid fa-flask text-amber-400 mr-2"></i>Advanced Modules
 </h4>
-<div class="grid grid-cols-2 gap-2">
-<div class="bg-slate-800/40 rounded-lg p-2 border border-purple-500/30 flex items-center gap-2">
-<i class="fa-solid fa-shirt text-purple-400 text-sm"></i>
+<div class="flex flex-col gap-2 flex-1">
+<div class="rounded-lg p-2.5 border border-purple-500/30 flex-1 flex items-center gap-3" style="background-color: rgba(30, 41, 59, 0.4);">
+<i class="fa-solid fa-shirt text-purple-400 text-base"></i>
 <div>
-<div class="flex items-center gap-1">
-<p class="text-xs text-white font-medium">VLM Attribute Recog.</p>
-<span class="text-[9px] px-1 py-0.5 rounded bg-green-500/20 text-green-300 border border-green-500/30">Done</span>
+<div class="flex items-center gap-1.5 mb-0.5">
+<p class="text-xs text-white font-bold">VLM Attribute Recognition</p>
+<span class="text-[10px] px-1.5 rounded bg-green-500/20 text-green-300 border border-green-500/30">Done</span>
 </div>
-<p class="text-[10px] text-gray-500">SOLIDER(ViT)+PromptPAR(CLIP) · F1 89.11%/mA 85.71%</p>
+<p class="text-[11px] text-gray-400 leading-snug">SOLIDER(ViT) + PromptPAR(CLIP)<br/>F1 89.11% · mA 85.71%</p>
 </div>
 </div>
-<div class="bg-slate-800/40 rounded-lg p-2 border border-dashed border-yellow-500/30 flex items-center gap-2">
-<i class="fa-solid fa-shield-halved text-yellow-400 text-sm"></i>
+<div class="rounded-lg p-2.5 border border-dashed border-yellow-500/30 flex-1 flex items-center gap-3" style="background-color: rgba(30, 41, 59, 0.4);">
+<i class="fa-solid fa-shield-halved text-yellow-400 text-base"></i>
 <div>
-<p class="text-xs text-white font-medium">Anomaly Detection (이상행동 감지)</p>
-<p class="text-[10px] text-gray-500">3-STAGE: 1차 알고리즘→2차 Video FM(X-CLIP류)→3차 VLM(Qwen3-VL-8B)</p>
+<div class="flex items-center gap-1.5 mb-0.5">
+<p class="text-xs text-white font-bold">Anomaly Detection (이상행동 감지)</p>
+<span class="text-[10px] px-1.5 rounded bg-yellow-500/20 text-yellow-300 border border-yellow-500/30">R&amp;D</span>
+</div>
+<p class="text-[11px] text-gray-400 leading-snug">3-Stage: 알고리즘 → Video FM(X-CLIP류)<br/>→ VLM(Qwen3-VL-8B) 최종 판별</p>
 </div>
 </div>
 </div>

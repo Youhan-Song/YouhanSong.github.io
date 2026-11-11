@@ -56,7 +56,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920");
+        background-image: url("assets/bg_unsplash.jpg");
         background-size: cover;
         background-position: center;
         opacity: 0.12;
@@ -104,6 +104,8 @@
         align-items: center;
     }
 </style>
+<link href="slide-common.css" rel="stylesheet"/>
+<script defer src="slide-common.js"></script>
 </head>
 <body>
 <div class="slide-container">
@@ -113,26 +115,28 @@
 <div class="absolute right-0 top-0 w-80 h-80 rounded-full blur-3xl pointer-events-none" style="background-color: rgba(6, 182, 212, 0.1);"></div>
 
 <!-- Header -->
-<div class="relative z-10 px-10 pt-5 pb-2 flex justify-between items-start">
-    <div>
-        <div class="flex items-center space-x-3 text-cyan-400 mb-1">
-            <span class="px-2 py-0.5 border border-cyan-500 rounded text-[10px] font-bold uppercase tracking-wider" style="background-color: rgba(6, 182, 212, 0.1);">Master's Thesis</span>
-            <span class="text-[11px] text-gray-400 uppercase tracking-widest">Texas A&M University</span>
-        </div>
-        <h1 class="text-3xl font-black text-white font-['Montserrat'] mb-0.5 leading-tight">Robust Real-Time Traffic Sign and Light Detection</h1>
-        <p class="text-lg text-cyan-300 font-medium">with Improved YOLOv7</p>
-    </div>
-    <div class="text-right">
-        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg border border-slate-700" style="background-color: rgba(30, 41, 59, 0.8);">
-            <i class="fa-solid fa-graduation-cap text-cyan-400 text-xs"></i>
-            <p class="text-xs font-medium text-white">June 2023</p>
-        </div>
-        <p class="text-[10px] text-gray-400 mt-1">Advisor: Dr. Reza Langari</p>
-    </div>
+<div class="relative z-10 px-10 pt-5 mb-2 flex justify-between items-start">
+<div>
+<div class="flex items-center space-x-3 mb-1">
+<span class="px-2 py-0.5 border border-cyan-500 rounded text-xs font-bold uppercase tracking-wider text-cyan-400" style="background-color: rgba(6, 182, 212, 0.1);">Project 11 · Thesis 1/3</span>
+<span class="text-xs text-gray-400 uppercase tracking-widest">Master's Thesis · Texas A&amp;M University</span>
+</div>
+<h1 class="text-3xl font-black text-white font-['Montserrat'] leading-tight">Robust Real-Time Traffic Sign and Light Detection</h1>
+<div class="flex items-center space-x-3 mt-1">
+<p class="text-sm text-cyan-300 font-medium">with Improved YOLOv7</p>
+</div>
+</div>
+<div class="text-right shrink-0 pl-4">
+<div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg border border-slate-700" style="background-color: rgba(30, 41, 59, 0.8);">
+<i class="fa-solid fa-graduation-cap text-cyan-400 text-xs"></i>
+<p class="text-xs font-medium text-white whitespace-nowrap">2023.06</p>
+</div>
+<p class="text-xs text-gray-400 mt-1.5">Advisor: Dr. Reza Langari</p>
+</div>
 </div>
 
 <!-- Main Content -->
-<div class="relative z-10 flex flex-1 px-10 pb-5 gap-5">
+<div class="relative z-10 flex flex-1 min-h-0 px-10 pb-5 gap-4">
     <!-- Left Column -->
     <div class="w-[48%] flex flex-col gap-3">
         <!-- Research Background -->
@@ -194,14 +198,14 @@
             <div class="flex gap-2 mb-1">
                 <div class="bg-slate-800/50 rounded-lg px-2 py-1 text-center flex-1">
                     <p class="text-base font-bold text-purple-300 font-['Montserrat']">29,978</p>
-                    <p class="text-[9px] text-gray-400">Images</p>
+                    <p class="text-[10px] text-gray-400">Images</p>
                 </div>
                 <div class="bg-slate-800/50 rounded-lg px-2 py-1 text-center flex-1">
                     <p class="text-base font-bold text-purple-300 font-['Montserrat']">14</p>
-                    <p class="text-[9px] text-gray-400">Classes</p>
+                    <p class="text-[10px] text-gray-400">Classes</p>
                 </div>
             </div>
-            <div class="flex gap-3 text-[9px]">
+            <div class="flex gap-3 text-[10px]">
                 <span class="text-gray-400"><i class="fa-solid fa-gauge-high text-blue-400 mr-1"></i>Speed Limit (10)</span>
                 <span class="text-gray-400"><i class="fa-solid fa-traffic-light text-green-400 mr-1"></i>Traffic Lights (3)</span>
                 <span class="text-gray-400"><i class="fa-solid fa-hand text-red-400 mr-1"></i>Stop Sign</span>
@@ -248,7 +252,7 @@
                 <img src="../../images/ava/modi7.PNG" class="w-full h-full object-cover" alt="Improved Model Detection Result"/>
             </div>
             <div class="mt-1.5 px-2 py-1 text-xs font-bold text-cyan-300 flex items-center">
-                <i class="fa-solid fa-arrow-up mr-1.5"></i>개선된 모델 (Improved YOLOv7)
+                <i class="fa-solid fa-circle-check mr-1.5"></i>개선된 모델 (Improved YOLOv7)
             </div>
         </div>
 
@@ -258,19 +262,12 @@
                 <img src="../../images/ava/ori7.PNG" class="w-full h-full object-cover" alt="Original Model Detection Result"/>
             </div>
             <div class="mt-1.5 px-2 py-1 text-xs font-bold text-red-300 flex items-center">
-                <i class="fa-solid fa-arrow-down mr-1.5"></i>원래 모델 (Original YOLOv7)
+                <i class="fa-solid fa-circle-xmark mr-1.5"></i>원래 모델 (Original YOLOv7)
             </div>
         </div>
     </div>
 </div>
 
-<!-- Footer -->
-<div class="relative z-10 px-10 pb-4">
-    <div class="flex justify-between items-center text-[9px] text-gray-500">
-        <span>Master's Thesis | Texas A&M University | Mechanical Engineering</span>
-        <span class="text-cyan-400 font-medium">1 / 3</span>
-    </div>
-</div>
 </div>
 </body>
 </html>

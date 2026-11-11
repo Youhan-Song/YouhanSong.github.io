@@ -31,7 +31,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("https://page.gensparksite.com/slides_images/2ade8d0d9147df5250666843cb12f339.webp");
+            background-image: url("assets/bg_robot.jpg");
             background-size: cover;
             background-position: center;
             opacity: 0.05;
@@ -97,6 +97,8 @@
             pointer-events: none;
         }
     </style>
+<link href="slide-common.css" rel="stylesheet"/>
+<script defer src="slide-common.js"></script>
 </head>
 <body>
 <div class="slide-container">
@@ -105,16 +107,16 @@
 <div class="absolute -right-20 -top-20 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
 <div class="absolute -left-20 bottom-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 <!-- Header -->
-<div class="relative z-10 px-12 pt-10 mb-6">
+<div class="relative z-10 px-12 pt-8 mb-5">
 <div class="flex items-center space-x-3 text-cyan-400 mb-2">
-<span class="px-2 py-0.5 border border-cyan-500 rounded text-[10px] font-bold uppercase tracking-wider bg-cyan-500/10">Summary</span>
+<span class="px-2 py-0.5 border border-cyan-500 rounded text-xs font-bold uppercase tracking-wider bg-cyan-500/10">Summary</span>
 <span class="text-xs text-gray-400 uppercase tracking-widest">Performance &amp; Impact</span>
 </div>
 <h1 class="text-4xl font-black text-white font-montserrat tracking-tight">Key Achievements</h1>
-<p class="text-lg text-gray-400 mt-2 font-light">11 Major Projects: <span class="text-green-400 font-medium">Computer Vision</span> · <span class="text-blue-400 font-medium">LLM</span> · <span class="text-teal-400 font-medium">Robotics</span> · <span class="text-cyan-400 font-medium">VLA/MARL</span></p>
+<p class="text-lg text-gray-400 mt-2 font-light">12 Major Projects: <span class="text-green-400 font-medium">Computer Vision</span> · <span class="text-blue-400 font-medium">LLM</span> · <span class="text-teal-400 font-medium">Robotics</span> · <span class="text-cyan-400 font-medium">VLA/MARL</span></p>
 </div>
 <!-- Main Content Grid -->
-<div class="relative z-10 flex-1 px-12 pb-10 grid grid-cols-12 gap-8">
+<div class="relative z-10 flex-1 min-h-0 px-12 pb-8 grid grid-cols-12 gap-6">
 <!-- Left Column: Radar Chart & Competency Summary -->
 <div class="col-span-4 flex flex-col gap-6">
 <div class="glass-panel p-6 flex-1 flex flex-col items-center justify-center relative overflow-hidden">
@@ -140,12 +142,12 @@
 <div class="accent-icon-bg bg-blue-500/10 text-blue-400 border border-blue-500/20 group-hover:bg-blue-500/20 group-hover:scale-110 transition-all duration-300">
 <i class="fa-solid fa-list-check"></i>
 </div>
-<span class="text-5xl font-black text-white font-montserrat glow-text">11</span>
+<span class="text-5xl font-black text-white font-montserrat glow-text">12</span>
 </div>
 <div>
 <h3 class="text-xl font-bold text-white mb-1">Projects Delivered</h3>
 <p class="text-sm text-gray-400 leading-snug">
-                            LLM/VLA/MARL 및 CV/Robotics 도메인에서 11개의 End-to-End AI 프로젝트 완수
+                            LLM/VLA/MARL 및 CV/Robotics 도메인에서 12개의 End-to-End AI 프로젝트 수행
                         </p>
 </div>
 </div>
@@ -194,9 +196,11 @@
 <div class="accent-icon-bg bg-amber-500/10 text-amber-400 border border-amber-500/20 group-hover:bg-amber-500/20 group-hover:scale-110 transition-all duration-300">
 <i class="fa-solid fa-layer-group"></i>
 </div>
-<div class="flex flex-col items-end">
-<span class="text-sm px-2 py-1 rounded bg-green-500/20 text-green-300 font-bold mb-1">CV</span>
-<span class="text-sm px-2 py-1 rounded bg-cyan-500/20 text-cyan-300 font-bold">VLA</span>
+<div class="grid grid-cols-2 gap-1.5 text-center">
+<span class="text-xs px-2 py-1 rounded bg-green-500/20 text-green-300 font-bold">CV</span>
+<span class="text-xs px-2 py-1 rounded bg-blue-500/20 text-blue-300 font-bold">LLM</span>
+<span class="text-xs px-2 py-1 rounded bg-cyan-500/20 text-cyan-300 font-bold">VLA</span>
+<span class="text-xs px-2 py-1 rounded bg-teal-500/20 text-teal-300 font-bold">MARL</span>
 </div>
 </div>
 <div>

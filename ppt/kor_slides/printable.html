@@ -7,8 +7,6 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
     * {
         margin: 0;
@@ -288,25 +286,57 @@
         to { transform: rotate(360deg); }
     }
 
-    /* Print styles - hide controls */
+    /* Print / PDF: one slide per 1280x720 page, in the order shown on this page */
+    @page {
+        size: 1280px 720px;
+        margin: 0;
+    }
     @media print {
         .controls, .loading-overlay {
             display: none !important;
         }
-        body {
-            background: white !important;
+        html, body {
+            width: 1280px !important;
+            margin: 0 !important;
             padding: 0 !important;
+            background: #0f172a !important;
         }
         .slide-wrapper {
+            width: 1280px !important;
+            height: 720px !important;
+            margin: 0 !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            opacity: 1 !important;
+            overflow: hidden !important;
+            break-after: page;
             page-break-after: always;
-            margin: 0;
-            box-shadow: none;
-            border-radius: 0;
+            break-inside: avoid;
         }
-        .slide-wrapper:last-child {
+        .slide-wrapper.excluded {
+            display: none !important;
+        }
+        .slide-wrapper.last-printed {
+            break-after: auto;
             page-break-after: auto;
         }
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
     }
+
+    .print-help {
+        margin: 10px 0 12px;
+        padding: 10px 12px;
+        border-radius: 8px;
+        background: rgba(30, 41, 59, 0.8);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        color: #cbd5e1;
+        font-size: 11px;
+        line-height: 1.6;
+    }
+    .print-help b { color: #22d3ee; }
 </style>
 </head>
 <body>
@@ -337,13 +367,12 @@
         </div>
 
         <button onclick="exportToPDF()" id="exportBtn">
-            <i class="fa-solid fa-download" style="margin-right: 6px;"></i>Export Selected to PDF
+            <i class="fa-solid fa-file-pdf" style="margin-right: 6px;"></i>PDF로 저장 (인쇄)
         </button>
-
-        <div class="progress-bar" id="progressBar">
-            <div class="progress-bar-fill" id="progressFill"></div>
+        <div class="print-help">
+            인쇄 창에서 <b>대상: PDF로 저장</b>, <b>여백: 없음</b>, <b>배경 그래픽: 켜기</b>로 설정하세요.
+            용지 크기는 16:9(1280×720)로 자동 지정됩니다. Chrome / Edge 권장.
         </div>
-        <div class="progress-text" id="progressText">Processing...</div>
 
         <button onclick="window.location.href='presentation.html'" class="secondary">
             <i class="fa-solid fa-arrow-left" style="margin-right: 6px;"></i>Back to Presentation
@@ -356,25 +385,28 @@
     <script>
         // Slide configuration (same order as presentation.html)
         const slides = [
-            { file: 'slide01.html', title: 'Title - AI & Robotics Researcher' },
+            // === INTRO ===
+            { file: 'slide01.html', title: 'Title - AI & Robotics Research Engineer' },
             { file: 'slide02.html', title: 'Researcher Profile' },
             { file: 'slide03.html', title: 'Education & Career Timeline' },
             { file: 'slide04.html', title: 'Core Competencies & Skills' },
-            { file: 'slide14.html', title: 'Universal VLA Model' },
-            { file: 'slide18.html', title: 'Smart Monitoring System' },
-            { file: 'slide15.html', title: 'EASIS: Embodiment-Agnostic Swarm Intelligence System' },
-            { file: 'slide05.html', title: 'Korean LLM Development' },
-            { file: 'slide06.html', title: 'SeeU Track - Vehicle Detection' },
-            { file: 'slide07.html', title: 'Face Recognition System' },
-            { file: 'slide08.html', title: 'SeeU ID - ID Card OCR' },
-            { file: 'slide09.html', title: 'Tanzania Smart Gate' },
-            { file: 'slide10.html', title: 'Gumi Metaverse - Safety Detection' },
-            { file: 'slide11.html', title: 'AVA Project - Autonomous Driving' },
-            { file: 'slide12.html', title: 'Robotic Arm Object Relocator' },
-            { file: 'slide13.html', title: 'NVIDIA Jetson AMR' },
-            { file: 'slide19.html', title: 'Traffic Sign Detection - Overview' },
-            { file: 'slide20.html', title: 'Traffic Sign Detection - YOLOv7 Architecture' },
-            { file: 'slide21.html', title: 'Traffic Sign Detection - Results' },
+            // === PROJECTS (latest first; the number is the Project NN badge on the slide) ===
+            { file: 'slide14.html', title: '01 Universal VLA Model' },
+            { file: 'slide15.html', title: '02 EASIS - Swarm Intelligence System' },
+            { file: 'slide18.html', title: '03 Smart Monitoring System' },
+            { file: 'slide05.html', title: '04 Korean LLM Development' },
+            { file: 'slide13.html', title: '05 NVIDIA Jetson AMR' },
+            { file: 'slide06.html', title: '06 SeeU Track - Vehicle & Person Detection' },
+            { file: 'slide07.html', title: '07 Face Recognition System' },
+            { file: 'slide09.html', title: '08 Tanzania Smart Gate' },
+            { file: 'slide08.html', title: '09 SeeU ID - ID Card OCR' },
+            { file: 'slide10.html', title: '10 Gumi Metaverse - Safety Detection' },
+            { file: 'slide11.html', title: '11 AVA - Autonomous Vehicle for All' },
+            { file: 'slide19.html', title: '11 Master\'s Thesis 1/3 - Overview' },
+            { file: 'slide20.html', title: '11 Master\'s Thesis 2/3 - YOLOv7 Architecture' },
+            { file: 'slide21.html', title: '11 Master\'s Thesis 3/3 - Results' },
+            { file: 'slide12.html', title: '12 Robotic Arm Object Relocator' },
+            // === CLOSING ===
             { file: 'slide16.html', title: 'Key Achievements Summary' },
             { file: 'slide17.html', title: 'Thank You' },
         ];
@@ -531,15 +563,28 @@
         }
 
         function updateSlideVisuals() {
-            document.querySelectorAll('.slide-wrapper').forEach((wrapper, index) => {
-                if (selectedSlides.has(index)) {
-                    wrapper.classList.add('selected');
-                    wrapper.classList.remove('excluded');
-                } else {
-                    wrapper.classList.remove('selected');
-                    wrapper.classList.add('excluded');
+            document.querySelectorAll('.slide-wrapper').forEach((wrapper) => {
+                const index = Number(wrapper.dataset.index);
+                wrapper.classList.toggle('selected', selectedSlides.has(index));
+                wrapper.classList.toggle('excluded', !selectedSlides.has(index));
+            });
+            applySlideOrder();
+        }
+
+        // Keep the page (and therefore the printed PDF) in the order chosen in the panel.
+        // Only wrappers that are out of place are moved, because moving an iframe reloads it.
+        function applySlideOrder() {
+            slideOrder.forEach((originalIndex, position) => {
+                const wrapper = document.getElementById(`slide-wrapper-${originalIndex}`);
+                if (wrapper && container.children[position] !== wrapper) {
+                    container.insertBefore(wrapper, container.children[position] || null);
                 }
             });
+            const printed = slideOrder.filter(idx => selectedSlides.has(idx));
+            document.querySelectorAll('.slide-wrapper').forEach(w => w.classList.remove('last-printed'));
+            if (printed.length) {
+                document.getElementById(`slide-wrapper-${printed[printed.length - 1]}`).classList.add('last-printed');
+            }
         }
 
         // Load all slides using iframes (same as presentation.html)
@@ -563,7 +608,7 @@
                         loadingText.textContent = 'Initializing charts...';
                         setTimeout(() => {
                             loadingOverlay.style.display = 'none';
-                        }, 3000);
+                        }, 1500);
                     }
                 };
 
@@ -573,471 +618,18 @@
 
             // Build slide selector
             buildSlideSelector();
+            applySlideOrder();
         }
 
-        // Convert all canvas elements (charts) to images within iframe
-        async function convertChartsToImages(iframeDoc) {
-            const canvases = iframeDoc.querySelectorAll('canvas');
-            const convertedCanvases = [];
-
-            for (const canvas of canvases) {
-                try {
-                    // Skip if canvas is empty or has no content
-                    if (canvas.width === 0 || canvas.height === 0) continue;
-
-                    // Get canvas data URL
-                    const dataUrl = canvas.toDataURL('image/png');
-
-                    // Get computed styles and position
-                    const rect = canvas.getBoundingClientRect();
-                    const parentRect = canvas.parentElement.getBoundingClientRect();
-
-                    // Create an image element
-                    const img = iframeDoc.createElement('img');
-                    img.src = dataUrl;
-                    img.className = 'chart-export-image';
-                    img.style.width = canvas.offsetWidth + 'px';
-                    img.style.height = canvas.offsetHeight + 'px';
-                    img.style.display = 'block';
-
-                    // Store reference for cleanup
-                    convertedCanvases.push({ canvas, img });
-
-                    // Replace canvas with image in the DOM
-                    canvas.parentNode.insertBefore(img, canvas);
-                    canvas.setAttribute('data-export-hidden', 'true');
-                    canvas.style.visibility = 'hidden';
-                    canvas.style.position = 'absolute';
-                } catch (e) {
-                    console.warn('Could not convert canvas:', e);
-                }
-            }
-
-            return convertedCanvases;
-        }
-
-        // Restore canvases after export
-        function restoreCanvases(iframeDoc) {
-            // Remove temporary images
-            const tempImages = iframeDoc.querySelectorAll('.chart-export-image');
-            tempImages.forEach(img => img.remove());
-
-            // Restore hidden canvases
-            const hiddenCanvases = iframeDoc.querySelectorAll('canvas[data-export-hidden]');
-            hiddenCanvases.forEach(canvas => {
-                canvas.style.visibility = '';
-                canvas.style.position = '';
-                canvas.removeAttribute('data-export-hidden');
-            });
-        }
-
-        // Preload and convert external images to base64
-        async function convertExternalImages(iframeDoc) {
-            const images = iframeDoc.querySelectorAll('img');
-            const bgElements = iframeDoc.querySelectorAll('[style*="background-image"]');
-
-            // Convert img elements
-            for (const img of images) {
-                if (img.src && img.src.startsWith('http') && !img.src.startsWith(window.location.origin)) {
-                    try {
-                        const response = await fetch(img.src, { mode: 'cors' });
-                        const blob = await response.blob();
-                        const dataUrl = await new Promise((resolve) => {
-                            const reader = new FileReader();
-                            reader.onloadend = () => resolve(reader.result);
-                            reader.readAsDataURL(blob);
-                        });
-                        img.src = dataUrl;
-                    } catch (e) {
-                        console.warn('Could not convert image:', img.src, e);
-                    }
-                }
-            }
-        }
-
-        // Extract Google Drive file ID from various URL formats
-        function extractDriveFileId(url) {
-            // Format: /file/d/FILE_ID/preview or /file/d/FILE_ID/view
-            const match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
-            return match ? match[1] : null;
-        }
-
-        // Handle Google Drive iframes - replace with thumbnail images
-        async function handleVideoIframes(iframeDoc) {
-            // Find all Google Drive iframes
-            const driveIframes = iframeDoc.querySelectorAll('iframe[src*="drive.google.com"]');
-
-            for (const iframe of driveIframes) {
-                // Hide the iframe completely
-                iframe.style.display = 'none';
-                iframe.style.visibility = 'hidden';
-                iframe.style.position = 'absolute';
-                iframe.style.pointerEvents = 'none';
-
-                // Get parent container dimensions
-                const parent = iframe.parentElement;
-                const parentHeight = parent?.offsetHeight || 200;
-                const parentWidth = parent?.offsetWidth || 300;
-
-                // Extract file ID to create thumbnail URL
-                const fileId = extractDriveFileId(iframe.src);
-
-                // Check if there's already a fallback
-                const existingFallback = iframe.nextElementSibling;
-                if (existingFallback && (existingFallback.classList.contains('video-fallback') ||
-                    existingFallback.classList.contains('video-export-placeholder') ||
-                    existingFallback.id?.includes('video-placeholder'))) {
-                    // Hide existing fallback, we'll create a thumbnail instead
-                    existingFallback.style.display = 'none';
-                }
-
-                // Create thumbnail placeholder with Google Drive thumbnail
-                const placeholder = iframeDoc.createElement('div');
-                placeholder.className = 'video-export-placeholder';
-                placeholder.style.cssText = `
-                    display: flex !important;
-                    position: relative;
-                    width: 100%;
-                    height: 100%;
-                    min-height: ${parentHeight}px;
-                    background: #0f172a;
-                    border-radius: 8px;
-                    overflow: hidden;
-                    box-sizing: border-box;
-                `;
-
-                if (fileId) {
-                    // Try multiple approaches to get the thumbnail
-                    const thumbnailUrl = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
-
-                    // Try to fetch via CORS proxy or direct fetch
-                    let thumbnailDataUrl = null;
-
-                    // Method 1: Try direct fetch (works if running on same origin or CORS allowed)
-                    try {
-                        const response = await fetch(thumbnailUrl, {
-                            mode: 'cors',
-                            credentials: 'omit'
-                        });
-                        if (response.ok) {
-                            const blob = await response.blob();
-                            thumbnailDataUrl = await new Promise((resolve) => {
-                                const reader = new FileReader();
-                                reader.onloadend = () => resolve(reader.result);
-                                reader.readAsDataURL(blob);
-                            });
-                        }
-                    } catch (e) {
-                        console.log('Direct fetch failed, trying proxy...', e);
-                    }
-
-                    // Method 2: Try CORS proxies if direct fetch failed
-                    const corsProxies = [
-                        `https://api.allorigins.win/raw?url=${encodeURIComponent(thumbnailUrl)}`,
-                        `https://corsproxy.io/?${encodeURIComponent(thumbnailUrl)}`,
-                        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(thumbnailUrl)}`
-                    ];
-
-                    for (const proxyUrl of corsProxies) {
-                        if (thumbnailDataUrl) break;
-                        try {
-                            const response = await fetch(proxyUrl);
-                            if (response.ok) {
-                                const blob = await response.blob();
-                                // Check if it's actually an image
-                                if (blob.type.startsWith('image/')) {
-                                    thumbnailDataUrl = await new Promise((resolve) => {
-                                        const reader = new FileReader();
-                                        reader.onloadend = () => resolve(reader.result);
-                                        reader.readAsDataURL(blob);
-                                    });
-                                }
-                            }
-                        } catch (e) {
-                            console.log('Proxy fetch failed:', proxyUrl, e);
-                        }
-                    }
-
-                    if (thumbnailDataUrl) {
-                        // Successfully got thumbnail as base64
-                        placeholder.innerHTML = `
-                            <img src="${thumbnailDataUrl}"
-                                 style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; border-radius: 50%; background: rgba(0, 0, 0, 0.6); display: flex; align-items: center; justify-content: center; pointer-events: none;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                </svg>
-                            </div>
-                        `;
-                    } else {
-                        // Fallback to styled placeholder
-                        placeholder.innerHTML = `
-                            <div style="display: flex; position: absolute; top: 0; left: 0; width: 100%; height: 100%; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 1));">
-                                <div style="width: 70px; height: 70px; border-radius: 50%; background: rgba(34, 211, 238, 0.15); border: 3px solid rgba(34, 211, 238, 0.5); display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
-                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="#22d3ee">
-                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                    </svg>
-                                </div>
-                                <div style="font-weight: 600; color: #e2e8f0; font-size: 14px;">Demo Video</div>
-                                <div style="color: #64748b; font-size: 11px; margin-top: 4px;">View in presentation</div>
-                            </div>
-                        `;
-                    }
-                } else {
-                    // Fallback if we can't extract file ID
-                    placeholder.innerHTML = `
-                        <div style="display: flex; position: absolute; top: 0; left: 0; width: 100%; height: 100%; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));">
-                            <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(34, 211, 238, 0.2); border: 2px solid rgba(34, 211, 238, 0.5); display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#22d3ee">
-                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                </svg>
-                            </div>
-                            <div style="font-weight: 600; color: #e2e8f0;">Video</div>
-                        </div>
-                    `;
-                }
-
-                iframe.parentNode.insertBefore(placeholder, iframe);
-            }
-
-            // Wait for thumbnail images to load
-            await new Promise(resolve => setTimeout(resolve, 500));
-
-            // Also handle Google Drive thumbnail images that might fail
-            const driveImages = iframeDoc.querySelectorAll('img[src*="drive.google.com"]');
-            driveImages.forEach(img => {
-                // Check if image failed to load
-                if (!img.complete || img.naturalWidth === 0) {
-                    img.style.display = 'none';
-                    const fallback = img.nextElementSibling;
-                    if (fallback) {
-                        fallback.style.display = 'flex';
-                    }
-                }
-            });
-        }
-
-        // Restore video iframes after export
-        function restoreVideoIframes(iframeDoc) {
-            // Restore Google Drive iframes
-            const driveIframes = iframeDoc.querySelectorAll('iframe[src*="drive.google.com"]');
-            driveIframes.forEach(iframe => {
-                iframe.style.display = '';
-            });
-
-            // Hide fallbacks
-            const fallbacks = iframeDoc.querySelectorAll('.video-fallback, [id*="video-placeholder"]');
-            fallbacks.forEach(fb => {
-                fb.style.display = 'none';
-            });
-
-            // Remove created placeholders
-            const placeholders = iframeDoc.querySelectorAll('.video-export-placeholder');
-            placeholders.forEach(p => p.remove());
-        }
-
-        // Export selected slides to PDF using html2canvas
-        async function exportToPDF() {
-            // Get selected slides in the user-defined order
-            const selectedIndices = slideOrder.filter(idx => selectedSlides.has(idx));
-
-            if (selectedIndices.length === 0) {
-                alert('Please select at least one slide to export.');
+        // Export through the browser's own print engine: text stays sharp and selectable,
+        // links keep working, and the page looks exactly like the slides on screen.
+        function exportToPDF() {
+            if (![...selectedSlides].length) {
+                alert('내보낼 슬라이드를 한 장 이상 선택하세요.');
                 return;
             }
-
-            const exportBtn = document.getElementById('exportBtn');
-            const progressBar = document.getElementById('progressBar');
-            const progressFill = document.getElementById('progressFill');
-            const progressText = document.getElementById('progressText');
-
-            exportBtn.disabled = true;
-            progressBar.classList.add('active');
-            progressText.classList.add('active');
-
-            try {
-                const { jsPDF } = window.jspdf;
-
-                // Create PDF with slide dimensions (1280x720 = 16:9 aspect ratio)
-                const pdf = new jsPDF({
-                    orientation: 'landscape',
-                    unit: 'px',
-                    format: [1280, 720],
-                    hotfixes: ['px_scaling']
-                });
-
-                let isFirstPage = true;
-
-                for (let i = 0; i < selectedIndices.length; i++) {
-                    const slideIndex = selectedIndices[i];
-                    const iframe = document.getElementById(`slide-iframe-${slideIndex}`);
-
-                    if (!iframe) continue;
-
-                    progressText.textContent = `Preparing slide ${i + 1}/${selectedIndices.length}: ${slides[slideIndex].title}`;
-                    progressFill.style.width = `${((i + 0.3) / selectedIndices.length) * 100}%`;
-
-                    try {
-                        // Access iframe content
-                        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                        const slideContainer = iframeDoc.querySelector('.slide-container');
-
-                        if (!slideContainer) {
-                            console.log(`No slide container found for slide ${slideIndex}`);
-                            continue;
-                        }
-
-                        // Scroll iframe into view to ensure it's rendered
-                        iframe.scrollIntoView({ behavior: 'instant' });
-                        await new Promise(resolve => setTimeout(resolve, 200));
-
-                        // Convert charts (canvas elements) to images BEFORE html2canvas
-                        progressText.textContent = `Converting charts in slide ${i + 1}/${selectedIndices.length}...`;
-                        await convertChartsToImages(iframeDoc);
-
-                        // Handle video iframes - replace with thumbnails
-                        progressText.textContent = `Loading video thumbnails for slide ${i + 1}/${selectedIndices.length}...`;
-                        await handleVideoIframes(iframeDoc);
-
-                        // Wait for thumbnails and chart images to render
-                        await new Promise(resolve => setTimeout(resolve, 300));
-
-                        progressText.textContent = `Rendering slide ${i + 1}/${selectedIndices.length}: ${slides[slideIndex].title}`;
-                        progressFill.style.width = `${((i + 0.6) / selectedIndices.length) * 100}%`;
-
-                        // Capture slide using html2canvas with improved settings
-                        const canvas = await html2canvas(slideContainer, {
-                            width: 1280,
-                            height: 720,
-                            scale: 2,
-                            useCORS: true,
-                            allowTaint: true,
-                            backgroundColor: '#0f172a',
-                            logging: false,
-                            foreignObjectRendering: false,
-                            imageTimeout: 15000,
-                            removeContainer: true,
-                            onclone: (clonedDoc, element) => {
-                                // Ensure dimensions are correct
-                                element.style.width = '1280px';
-                                element.style.height = '720px';
-                                element.style.overflow = 'hidden';
-                                element.style.transform = 'none';
-
-                                // FIX: Handle gradient text (text-transparent bg-clip-text)
-                                // html2canvas cannot render this, so convert to solid color
-                                const gradientTexts = element.querySelectorAll('.text-transparent, [class*="bg-clip-text"]');
-                                gradientTexts.forEach(el => {
-                                    // Remove the transparent text and background-clip
-                                    el.style.color = '#22d3ee'; // Use cyan color instead
-                                    el.style.backgroundClip = 'unset';
-                                    el.style.webkitBackgroundClip = 'unset';
-                                    el.style.backgroundImage = 'none';
-                                    el.classList.remove('text-transparent');
-                                });
-
-                                // Handle background images that use external URLs
-                                const bgOverlay = element.querySelector('.bg-overlay');
-                                if (bgOverlay) {
-                                    // Remove problematic external background images
-                                    bgOverlay.style.backgroundImage = 'none';
-                                    bgOverlay.style.backgroundColor = 'rgba(15, 23, 42, 0.3)';
-                                }
-                                const bgPattern = element.querySelector('.bg-pattern');
-                                if (bgPattern) {
-                                    bgPattern.style.backgroundImage = 'none';
-                                    bgPattern.style.backgroundColor = 'rgba(15, 23, 42, 0.15)';
-                                }
-
-                                // Handle Google Drive iframes in cloned doc - they can't be captured
-                                const driveIframes = element.querySelectorAll('iframe[src*="drive.google.com"]');
-                                driveIframes.forEach(iframe => {
-                                    // Hide iframe completely
-                                    iframe.style.display = 'none';
-                                    iframe.style.visibility = 'hidden';
-
-                                    // Make sure fallback is visible
-                                    const fallback = iframe.nextElementSibling;
-                                    if (fallback && (fallback.classList.contains('video-fallback') ||
-                                        fallback.classList.contains('video-export-placeholder') ||
-                                        fallback.id?.includes('video-placeholder'))) {
-                                        fallback.style.display = 'flex';
-                                        fallback.style.visibility = 'visible';
-                                    }
-                                });
-
-                                // Also find ALL video-fallback elements and make them visible
-                                const allFallbacks = element.querySelectorAll('.video-fallback, [id*="video-placeholder"]');
-                                allFallbacks.forEach(fb => {
-                                    // Check if parent has a Google Drive iframe
-                                    const parentDiv = fb.parentElement;
-                                    const hasGDriveIframe = parentDiv?.querySelector('iframe[src*="drive.google.com"]');
-                                    if (hasGDriveIframe) {
-                                        fb.style.display = 'flex';
-                                        fb.style.visibility = 'visible';
-                                    }
-                                });
-
-                                // Handle Google Drive images that may fail CORS
-                                const driveImages = element.querySelectorAll('img[src*="drive.google.com"]');
-                                driveImages.forEach(img => {
-                                    // Show fallback for Google Drive images
-                                    const fallback = img.nextElementSibling;
-                                    if (fallback) {
-                                        img.style.display = 'none';
-                                        fallback.style.display = 'flex';
-                                    }
-                                });
-                            }
-                        });
-
-                        // Add new page if not first
-                        if (!isFirstPage) {
-                            pdf.addPage([1280, 720], 'landscape');
-                        }
-                        isFirstPage = false;
-
-                        // Add image to PDF
-                        const imgData = canvas.toDataURL('image/jpeg', 0.95);
-                        pdf.addImage(imgData, 'JPEG', 0, 0, 1280, 720);
-
-                        progressFill.style.width = `${((i + 1) / selectedIndices.length) * 100}%`;
-
-                        // Restore canvases and video iframes for preview
-                        restoreCanvases(iframeDoc);
-                        restoreVideoIframes(iframeDoc);
-
-                    } catch (slideError) {
-                        console.error(`Error capturing slide ${slideIndex}:`, slideError);
-                        // Continue with next slide
-                    }
-                }
-
-                progressText.textContent = 'Saving PDF...';
-
-                // Generate filename with date
-                const date = new Date().toISOString().slice(0, 10);
-                const filename = `AI_Robotics_Portfolio_${date}.pdf`;
-
-                pdf.save(filename);
-
-                progressText.textContent = 'PDF exported successfully!';
-                setTimeout(() => {
-                    progressBar.classList.remove('active');
-                    progressText.classList.remove('active');
-                    progressFill.style.width = '0%';
-                }, 2000);
-
-            } catch (error) {
-                console.error('PDF export error:', error);
-                progressText.textContent = `Error: ${error.message}`;
-                setTimeout(() => {
-                    progressBar.classList.remove('active');
-                    progressText.classList.remove('active');
-                }, 3000);
-            }
-
-            exportBtn.disabled = false;
+            applySlideOrder();
+            window.print();
         }
 
         // Start loading slides

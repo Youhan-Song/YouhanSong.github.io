@@ -1,0 +1,95 @@
+/* Shared by every slideNN.html: print/PDF rules and the video stand-in used when printing. */
+
+@page {
+    size: 1280px 720px;
+    margin: 0;
+}
+
+/* Static stand-in for embedded Google Drive videos (built by slide-common.js). Hidden on screen. */
+.print-thumb {
+    display: none;
+    position: absolute;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #e2e8f0;
+    font-size: 12px;
+    font-weight: 600;
+}
+.print-thumb img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.print-thumb .play {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.75);
+    border: 2px solid rgba(34, 211, 238, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.print-thumb .play::after {
+    content: '';
+    margin-left: 4px;
+    border-style: solid;
+    border-width: 8px 0 8px 13px;
+    border-color: transparent transparent transparent #22d3ee;
+}
+.print-thumb .label {
+    position: relative;
+    margin-top: 6px;
+    padding: 1px 8px;
+    border-radius: 9999px;
+    background: rgba(15, 23, 42, 0.75);
+}
+
+@media print {
+    html, body {
+        width: 1280px !important;
+        height: 720px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        background: #0f172a !important;
+    }
+    .slide-container {
+        width: 1280px !important;
+        height: 720px !important;
+        max-height: 720px !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+        break-inside: avoid !important;
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+    }
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    /* Blur effects make the browser rasterise whole pages (a 21-slide PDF grew to ~58 MB).
+       Dropping them in print keeps text as real text and the file small. */
+    * {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+    .blur-3xl, .blur-2xl, .blur-xl {
+        display: none !important;
+    }
+    /* Video players cannot be printed: show the stand-in instead. */
+    iframe[src*="drive.google.com"] {
+        display: none !important;
+    }
+    .print-thumb {
+        display: flex !important;
+    }
+}

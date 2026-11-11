@@ -87,7 +87,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("https://page.gensparksite.com/slides_images/2ade8d0d9147df5250666843cb12f339.webp");
+            background-image: url("assets/bg_robot.jpg");
             background-size: cover;
             background-position: center;
             opacity: 0.05;
@@ -115,8 +115,7 @@
             border-radius: 6px;
             font-size: 11px;
             font-weight: 600;
-            margin-right: 6px;
-            margin-bottom: 6px;
+            margin: 0;
             background-color: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(148, 163, 184, 0.2);
             color: #e2e8f0;
@@ -151,6 +150,8 @@
             color: rgba(148, 163, 184, 0.5);
         }
     </style>
+<link href="slide-common.css" rel="stylesheet"/>
+<script defer src="slide-common.js"></script>
 </head>
 <body>
 <div class="slide-container">
@@ -159,83 +160,74 @@
 <div class="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-blue-900/20 to-transparent pointer-events-none"></div>
 <div class="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
 <!-- Header -->
-<div class="relative z-10 px-8 pt-5 mb-4 flex justify-between items-start">
+<div class="relative z-10 px-10 pt-5 mb-2 flex justify-between items-start">
 <div>
-<div class="flex items-center space-x-3 text-cyan-400 mb-2">
-<span class="px-2 py-0.5 border border-cyan-500 rounded text-xs font-bold uppercase tracking-wider bg-cyan-500/10">Project 07</span>
+<div class="flex items-center space-x-3 mb-1">
+<span class="px-2 py-0.5 border border-cyan-500 rounded text-xs font-bold uppercase tracking-wider text-cyan-400" style="background-color: rgba(6, 182, 212, 0.1);">Project 11</span>
 <span class="text-xs text-gray-400 uppercase tracking-widest">Autonomous Driving Perception</span>
 </div>
-<h1 class="text-3xl font-black text-white font-['Montserrat'] mb-1">Autonomous Vehicle for All Project (Texas A&amp;M)</h1>
-<div class="flex items-center space-x-4">
-<p class="text-lg text-gray-300 font-light">Traffic Sign &amp; Signal Detection for Autonomous Vehicle</p>
-<div class="h-4 w-px bg-gray-600"></div>
-<span class="text-sm text-cyan-300 font-medium bg-cyan-900/30 px-3 py-1 rounded-full border border-cyan-500/30">Texas D.O.T (텍사스 교통국)</span>
+<h1 class="text-3xl font-black text-white font-['Montserrat'] leading-tight">Autonomous Vehicle for All (AVA)</h1>
+<div class="flex items-center space-x-3 mt-1">
+<p class="text-sm text-gray-300 font-light">Traffic Sign &amp; Signal Detection for Autonomous Vehicle</p>
+<div class="h-3 w-px bg-gray-600"></div>
+<span class="text-xs text-cyan-300 font-medium px-2 py-0.5 rounded-full border border-cyan-500/30" style="background-color: rgba(15, 23, 42, 0.6);">Texas A&amp;M</span>
+<span class="text-xs text-cyan-300 font-medium px-2 py-0.5 rounded-full border border-cyan-500/30" style="background-color: rgba(15, 23, 42, 0.6);">Texas D.O.T (텍사스 교통국)</span>
 </div>
 </div>
-<div class="text-right">
-<div class="inline-flex items-center space-x-2 bg-slate-800/80 px-4 py-2 rounded-lg border border-slate-700">
-<i class="fa-regular fa-calendar text-cyan-400"></i>
-<p class="text-sm font-medium text-white">2022.05 - 2023.08</p>
+<div class="text-right shrink-0 pl-4">
+<div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg border border-slate-700" style="background-color: rgba(30, 41, 59, 0.8);">
+<i class="fa-regular fa-calendar text-cyan-400 text-xs"></i>
+<p class="text-xs font-medium text-white whitespace-nowrap">2022.05 - 2023.08</p>
 </div>
 </div>
 </div>
+
 <!-- Main Content -->
-<div class="relative z-10 flex flex-1 px-6 pb-4 gap-4">
+<div class="relative z-10 flex flex-1 min-h-0 px-10 pb-5 gap-4">
 <!-- Left Panel: Project Overview & Specs -->
-<div class="w-1/3 flex flex-col gap-2">
-<!-- Overview Card -->
-<div class="glass-panel p-3 flex-1 overflow-y-auto" style="max-height: 100%;">
-<h3 class="text-lg font-bold text-white mb-2 flex items-center">
+<div class="w-1/3 flex flex-col min-h-0">
+<div class="glass-panel p-4 flex-1 flex flex-col min-h-0">
+<h3 class="text-base font-bold text-white mb-2 flex items-center">
 <i class="fa-solid fa-crosshairs text-cyan-400 mr-2"></i>
                         Project Goal
                     </h3>
-<p class="text-sm text-gray-300 leading-relaxed mb-3">
-    Texas D.O.T 후원 연구 과제로 UIUC, UC Davis와 공동 수행. 미국 도시 외곽/비포장(Rural/Off-road) 환경에서의 자율주행 시스템 개발. 교통 표지판/신호등 인지 모듈 개발 및 ROS 기반 실차(Jeep Grand Cherokee) 통합까지 End-to-End 연구 수행.
+<p class="text-xs text-gray-300 leading-relaxed mb-3">
+    Texas D.O.T 후원 연구 과제로 UIUC, UC Davis와 공동 수행. 미국 도시 외곽/비포장(Rural/Off-road) 환경의 자율주행 시스템 개발 과제에서 교통 표지판/신호등 인지 모듈 개발과 ROS 기반 실차(Jeep Grand Cherokee) 통합까지 수행했습니다.
 </p>
-<h4 class="text-xs font-bold text-gray-400 uppercase mb-2">Key Responsibilities</h4>
-<ul class="space-y-2 text-xs text-gray-300">
-<li class="flex items-start">
-<i class="fa-solid fa-check text-cyan-500 mt-1 mr-2 text-xs"></i>
-<span class="leading-snug">Multi-sensor(Camera, LiDAR, Radar, GPS+IMU) 데이터 수집 및 라벨링</span>
-</li>
-<li class="flex items-start">
-<i class="fa-solid fa-check text-cyan-500 mt-1 mr-2 text-xs"></i>
-<span class="leading-snug">Traffic Sign/Signal Detection 모델 개발</span>
-</li>
-<li class="flex items-start">
-<i class="fa-solid fa-check text-cyan-500 mt-1 mr-2 text-xs"></i>
-<span class="leading-snug">ROS 환경 통합 및 실시간 추론 파이프라인 구축</span>
-</li>
-<li class="flex items-start">
-<i class="fa-solid fa-check text-cyan-500 mt-1 mr-2 text-xs"></i>
-<span class="leading-snug">실제 자율주행 차량 탑재 및 실증 테스트</span>
-</li>
+<h4 class="text-xs font-bold text-gray-400 uppercase mb-1.5">Key Responsibilities</h4>
+<ul class="space-y-1 text-xs text-gray-300 mb-3">
+<li class="flex items-start"><i class="fa-solid fa-check text-cyan-500 mt-0.5 mr-2 text-xs"></i><span class="leading-snug">Multi-sensor(Camera, LiDAR, Radar, GPS+IMU) 데이터 수집·라벨링</span></li>
+<li class="flex items-start"><i class="fa-solid fa-check text-cyan-500 mt-0.5 mr-2 text-xs"></i><span class="leading-snug">Traffic Sign/Signal Detection 모델 개발</span></li>
+<li class="flex items-start"><i class="fa-solid fa-check text-cyan-500 mt-0.5 mr-2 text-xs"></i><span class="leading-snug">ROS 환경 통합 및 실시간 추론 파이프라인 구축</span></li>
+<li class="flex items-start"><i class="fa-solid fa-check text-cyan-500 mt-0.5 mr-2 text-xs"></i><span class="leading-snug">실제 자율주행 차량 탑재 및 실증 테스트</span></li>
 </ul>
-<h4 class="text-xs font-bold text-gray-400 uppercase mb-2">Key Achievements</h4>
-<ul class="text-xs text-gray-300 leading-relaxed mb-3 list-disc list-inside space-y-1">
-<li>Texas 현지 도로 환경에 맞는 자체 데이터셋 구축 및 라벨링</li>
-<li>다양한 조도, 날씨, 가려짐 조건에서 강인한 교통 표지판 및 신호등 탐지 모델 개발</li>
-<li>ROS 환경 통합 및 자율주행 차량 제어 시스템과의 실시간 연동 파이프라인 구축</li>
-<li>데이터 수집 (Point Cloud, Image, Video 등)부터 모델 설계, 학습, 차량 탑재 및 테스트까지 전 과정 주도 수행</li>
+<h4 class="text-xs font-bold text-gray-400 uppercase mb-1.5">Key Achievements</h4>
+<ul class="space-y-1 text-xs text-gray-300 mb-3">
+<li class="flex items-start"><i class="fa-solid fa-circle text-cyan-500 mt-1.5 mr-2" style="font-size: 5px;"></i><span class="leading-snug">Texas 현지 도로 환경에 맞는 자체 데이터셋 구축</span></li>
+<li class="flex items-start"><i class="fa-solid fa-circle text-cyan-500 mt-1.5 mr-2" style="font-size: 5px;"></i><span class="leading-snug">조도·날씨·가려짐에 강인한 표지판/신호등 탐지 모델 개발</span></li>
+<li class="flex items-start"><i class="fa-solid fa-circle text-cyan-500 mt-1.5 mr-2" style="font-size: 5px;"></i><span class="leading-snug">차량 제어 시스템과의 실시간 연동 파이프라인 구축</span></li>
+<li class="flex items-start"><i class="fa-solid fa-circle text-cyan-500 mt-1.5 mr-2" style="font-size: 5px;"></i><span class="leading-snug">데이터 수집부터 모델 설계·학습, 차량 탑재·테스트까지 전 과정 수행</span></li>
 </ul>
-<h4 class="text-xs font-bold text-gray-400 uppercase mb-2">Tech Stack &amp; Environment</h4>
-<div class="flex flex-wrap gap-1 mb-0">
+<div class="mt-auto">
+<h4 class="text-xs font-bold text-gray-400 uppercase mb-1.5">Tech Stack &amp; Environment</h4>
+<div class="flex flex-wrap gap-1">
 <span class="tech-badge"><i class="fa-brands fa-python text-blue-400"></i> Python</span>
 <span class="tech-badge"><i class="fa-solid fa-fire text-orange-500"></i> PyTorch</span>
 <span class="tech-badge"><i class="fa-solid fa-eye text-green-400"></i> OpenCV</span>
 <span class="tech-badge"><i class="fa-solid fa-robot text-purple-400"></i> ROS</span>
 <span class="tech-badge"><i class="fa-brands fa-linux text-orange-400"></i> Linux</span>
 <span class="tech-badge"><i class="fa-brands fa-docker text-blue-400"></i> Docker</span>
-<span class="tech-badge"><i class="fa-solid fa-microchip mr-1 text-green-400"></i> Autoware</span>
-<span class="tech-badge"><i class="fa-solid fa-microchip mr-1 text-green-400"></i> Cloud Compare</span>
+<span class="tech-badge"><i class="fa-solid fa-microchip text-green-400"></i> Autoware</span>
+<span class="tech-badge"><i class="fa-solid fa-cloud text-sky-400"></i> CloudCompare</span>
 <span class="tech-badge"><i class="fa-solid fa-tags text-cyan-400"></i> CVAT</span>
 </div>
 </div>
 </div>
+</div>
 <!-- Right Panel: Technical Details & Process -->
-<div class="w-2/3 flex flex-col gap-2">
+<div class="w-2/3 flex flex-col gap-3 min-h-0">
 <!-- Architecture Diagram Section -->
-<div class="glass-panel-dark p-2">
+<div class="glass-panel-dark p-3">
 <h3 class="text-sm font-bold text-white mb-2 font-['Montserrat']">Research &amp; Development Pipeline</h3>
 <div class="flex items-stretch justify-between gap-1 text-xs">
 <!-- Step 1 -->
@@ -291,35 +283,35 @@
 </div>
 </div>
 <!-- Demonstration Section -->
-<div class="glass-panel p-2 flex flex-col flex-1">
-<h3 class="text-sm font-bold text-white mb-2">Project Images & Videos</h3>
-<div class="grid grid-cols-2 gap-2 flex-1">
+<div class="glass-panel p-3 flex flex-col flex-1 min-h-0">
+<h3 class="text-sm font-bold text-white mb-2 font-['Montserrat']">Project Images &amp; Videos</h3>
+<div class="grid grid-cols-2 grid-rows-2 gap-2 flex-1 min-h-0">
 <!-- Image 1 -->
-<div class="bg-slate-800/50 rounded-lg border border-slate-700 overflow-hidden flex items-center justify-center" style="height: 170px;">
+<div class="bg-slate-800/50 rounded-lg border border-slate-700 overflow-hidden flex items-center justify-center min-h-0">
 <img src="../../images/ava/ava_img_3.jpg" alt="Demonstration Image 1" class="w-full h-full object-contain rounded" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
 <div class="flex items-center justify-center h-full w-full" style="display: none;">
 <span class="text-xs text-gray-500">Image 1</span>
 </div>
 </div>
 <!-- Video 1 -->
-<div class="bg-slate-800/50 rounded-lg border border-slate-700 overflow-hidden flex items-center justify-center relative" style="height: 170px;">
+<div class="bg-slate-800/50 rounded-lg border border-slate-700 overflow-hidden flex items-center justify-center relative min-h-0">
 <iframe src="https://drive.google.com/file/d/1zbqhoitxoYKCDdrSCQzKWvWvAeaH2MW7/preview" class="w-full h-full border-0 rounded" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen onload="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></iframe>
 <div class="video-fallback" id="video-placeholder-1" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
     <img src="https://drive.google.com/thumbnail?id=1zbqhoitxoYKCDdrSCQzKWvWvAeaH2MW7&sz=w1000" alt="Demo Video" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';">
 </div>
 </div>
 <!-- Video 2 -->
-<div class="bg-slate-800/50 rounded-lg border border-slate-700 overflow-hidden flex items-center justify-center relative" style="height: 170px;">
+<div class="bg-slate-800/50 rounded-lg border border-slate-700 overflow-hidden flex items-center justify-center relative min-h-0">
 <iframe src="https://drive.google.com/file/d/1Dl4JxfECjaxBiobQfI5q4q5P7BtO_Tki/preview" class="w-full h-full border-0 rounded" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen onload="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></iframe>
 <div class="video-fallback" id="video-placeholder-2" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
     <img src="https://drive.google.com/thumbnail?id=1Dl4JxfECjaxBiobQfI5q4q5P7BtO_Tki&sz=w1000" alt="Detection Demo" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';">
 </div>
 </div>
 <!-- Video 3 -->
-<div class="bg-slate-800/50 rounded-lg border border-slate-700 overflow-hidden flex items-center justify-center relative" style="height: 170px;">
-<iframe src="https://drive.google.com/file/d/1ifeu-waA8TNrYYe8D2kDoMEj82qUVqUC/preview" class="w-full h-full border-0 rounded" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen onload="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></iframe>
+<div class="bg-slate-800/50 rounded-lg border border-slate-700 overflow-hidden flex items-center justify-center relative min-h-0">
+<iframe src="https://drive.google.com/file/d/1pFxwZvQl5oDzrdrfNlDIeAfDrIKJWl0L/preview" class="w-full h-full border-0 rounded" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen onload="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></iframe>
 <div class="video-fallback" id="video-placeholder-3" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-    <img src="https://drive.google.com/thumbnail?id=1ifeu-waA8TNrYYe8D2kDoMEj82qUVqUC&sz=w1000" alt="Road Test" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';">
+    <img src="https://drive.google.com/thumbnail?id=1pFxwZvQl5oDzrdrfNlDIeAfDrIKJWl0L&sz=w1000" alt="Road Test" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';">
 </div>
 </div>
 </div>

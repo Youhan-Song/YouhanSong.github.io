@@ -8,8 +8,6 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&amp;family=Noto+Sans+KR:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
     body {
         margin: 0;
@@ -332,8 +330,8 @@
         <button class="nav-btn" onclick="toggleFullscreen()">
             <i class="fa-solid fa-expand"></i> Fullscreen
         </button>
-        <button class="nav-btn" onclick="window.open('printable.html', '_blank')" title="Open print-friendly version (Ctrl+P)">
-            <i class="fa-solid fa-print"></i> Print PDF
+        <button class="nav-btn" onclick="window.open('printable.html', '_blank')" title="Open the PDF export page">
+            <i class="fa-solid fa-file-pdf"></i> Export PDF
         </button>
     </div>
     
@@ -351,33 +349,28 @@
     // ============================================================
 
     const slides = [
-        // === INTRO SECTION ===
-        { file: 'slide01.html', title: 'Title - AI & Robotics Researcher' },
+        // === INTRO ===
+        { file: 'slide01.html', title: 'Title - AI & Robotics Research Engineer' },
         { file: 'slide02.html', title: 'Researcher Profile' },
         { file: 'slide03.html', title: 'Education & Career Timeline' },
         { file: 'slide04.html', title: 'Core Competencies & Skills' },
-
-        // === PROJECT SECTION (ORDER: LATEST FIRST) ===
-        // Personal Projects (Latest)
-        { file: 'slide14.html', title: 'Universal VLA Model' },
-        { file: 'slide15.html', title: 'EASIS: Embodiment-Agnostic Swarm Intelligence System' },
-
-        // Work Projects (Recent to Old)
-        { file: 'slide18.html', title: 'Smart Monitoring System' },
-        { file: 'slide05.html', title: 'Korean LLM Development' },
-        { file: 'slide06.html', title: 'SeeU Track - Vehicle Detection' },
-        { file: 'slide07.html', title: 'Face Recognition System' },
-        { file: 'slide08.html', title: 'SeeU ID - ID Card OCR' },
-        { file: 'slide09.html', title: 'Tanzania Smart Gate' },
-        { file: 'slide10.html', title: 'Gumi Metaverse - Safety Detection' },
-        { file: 'slide11.html', title: 'AVA Project - Autonomous Driving' },
-        { file: 'slide19.html', title: 'Traffic Sign Detection - Overview' },
-        { file: 'slide20.html', title: 'Traffic Sign Detection - Technical Approach' },
-        { file: 'slide21.html', title: 'Traffic Sign Detection - Results & Conclusion' },
-        { file: 'slide12.html', title: 'Robotic Arm Object Relocator' },
-        { file: 'slide13.html', title: 'NVIDIA Jetson AMR' },
-
-        // === CLOSING SECTION ===
+        // === PROJECTS (latest first; the number is the Project NN badge on the slide) ===
+        { file: 'slide14.html', title: '01 Universal VLA Model' },
+        { file: 'slide15.html', title: '02 EASIS - Swarm Intelligence System' },
+        { file: 'slide18.html', title: '03 Smart Monitoring System' },
+        { file: 'slide05.html', title: '04 Korean LLM Development' },
+        { file: 'slide13.html', title: '05 NVIDIA Jetson AMR' },
+        { file: 'slide06.html', title: '06 SeeU Track - Vehicle & Person Detection' },
+        { file: 'slide07.html', title: '07 Face Recognition System' },
+        { file: 'slide09.html', title: '08 Tanzania Smart Gate' },
+        { file: 'slide08.html', title: '09 SeeU ID - ID Card OCR' },
+        { file: 'slide10.html', title: '10 Gumi Metaverse - Safety Detection' },
+        { file: 'slide11.html', title: '11 AVA - Autonomous Vehicle for All' },
+        { file: 'slide19.html', title: '11 Master\'s Thesis 1/3 - Overview' },
+        { file: 'slide20.html', title: '11 Master\'s Thesis 2/3 - YOLOv7 Architecture' },
+        { file: 'slide21.html', title: '11 Master\'s Thesis 3/3 - Results' },
+        { file: 'slide12.html', title: '12 Robotic Arm Object Relocator' },
+        // === CLOSING ===
         { file: 'slide16.html', title: 'Key Achievements Summary' },
         { file: 'slide17.html', title: 'Thank You' },
     ];
@@ -430,100 +423,9 @@
         updateNavigation();
     }
     
-    // Fix project names alignment and date positioning
-    function fixProjectNames(iframe) {
-        try {
-            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-            if (!iframeDoc) return;
+    // Slide headers share one template now, so no per-slide alignment patching is needed.
+    function fixProjectNames() {}
 
-            // Inject CSS to fix project name alignment and date positioning
-            const style = iframeDoc.createElement('style');
-            style.textContent = `
-                /* Fix project headers - ensure left alignment */
-                .relative.z-10.px-8 > div:first-child,
-                .relative.z-10.px-10 > div:first-child,
-                .relative.z-10.px-12 > div:first-child {
-                    text-align: left !important;
-                    justify-content: flex-start !important;
-                }
-
-                /* Fix h1 project titles */
-                h1.font-\\['Montserrat'\\],
-                h1.text-3xl,
-                h1.text-4xl,
-                h1.text-2xl {
-                    text-align: left !important;
-                }
-
-                /* Fix header containers */
-                .flex.justify-between.items-start > div:first-child {
-                    text-align: left !important;
-                    align-items: flex-start !important;
-                }
-
-                /* Ensure project name sections are left-aligned */
-                .relative.z-10.px-8 .flex.items-center.space-x-3,
-                .relative.z-10.px-10 .flex.items-center.space-x-3,
-                .relative.z-10.px-12 .flex.items-center.space-x-3 {
-                    justify-content: flex-start !important;
-                }
-
-                /* Fix date positioning - ensure it stays in top right */
-                .flex.justify-between.items-start > div.text-right,
-                .flex.justify-between.items-start > div:last-child {
-                    position: absolute !important;
-                    top: 20px !important;
-                    right: 48px !important;
-                    text-align: right !important;
-                    z-index: 20 !important;
-                }
-
-                /* Ensure header container is relative for absolute positioning */
-                .relative.z-10.px-8.flex.justify-between.items-start,
-                .relative.z-10.px-10.flex.justify-between.items-start,
-                .relative.z-10.px-12.flex.justify-between.items-start {
-                    position: relative !important;
-                }
-            `;
-            iframeDoc.head.appendChild(style);
-            
-            // Also fix specific elements
-            const headers = iframeDoc.querySelectorAll('h1');
-            headers.forEach(header => {
-                const text = header.textContent || '';
-                if (text.includes('LLM') || text.includes('SEEU') || text.includes('Face') ||
-                    text.includes('AVA') || text.includes('Robotic') || text.includes('Tanzania') ||
-                    text.includes('Gumi') || text.includes('Project') || text.includes('한국어') ||
-                    text.includes('ID') || text.includes('Track')) {
-                    header.style.textAlign = 'left';
-                    const parent = header.closest('.flex');
-                    if (parent) {
-                        parent.style.justifyContent = 'flex-start';
-                    }
-                }
-            });
-
-            // Fix date positioning directly
-            const headerContainers = iframeDoc.querySelectorAll('.flex.justify-between.items-start');
-            headerContainers.forEach(container => {
-                // Make container relative if not already
-                container.style.position = 'relative';
-
-                // Find the date element (usually the last child or has text-right class)
-                const dateElement = container.querySelector('.text-right') || container.lastElementChild;
-                if (dateElement && dateElement !== container.firstElementChild) {
-                    dateElement.style.position = 'absolute';
-                    dateElement.style.top = '0';
-                    dateElement.style.right = '0';
-                    dateElement.style.textAlign = 'right';
-                    dateElement.style.zIndex = '20';
-                }
-            });
-        } catch (e) {
-            console.log('Could not access iframe content:', e);
-        }
-    }
-    
     // Initialize charts in iframe
     function initializeCharts(iframe) {
         try {
@@ -1143,41 +1045,7 @@
                 svg.style.display = 'block';
             });
 
-            // Hide canvas elements (ECharts)
-            const canvases = iframeDoc.querySelectorAll('canvas');
-            canvases.forEach(canvas => {
-                canvas.style.display = 'none';
-            });
-
-            // Handle video iframes - show fallback placeholders
-            const videoIframes = iframeDoc.querySelectorAll('iframe[src*="drive.google.com"], iframe[src*="youtube.com"]');
-            videoIframes.forEach(videoIframe => {
-                videoIframe.style.display = 'none';
-
-                // Show existing fallback if present
-                const parent = videoIframe.parentElement;
-                if (parent) {
-                    const fallback = parent.querySelector('.video-fallback');
-                    if (fallback) {
-                        fallback.style.display = 'flex';
-                    }
-                }
-            });
-
-            // Handle Google Drive images - show fallback
-            const gdImages = iframeDoc.querySelectorAll('img[src*="drive.google.com"]');
-            gdImages.forEach(img => {
-                img.style.display = 'none';
-
-                // Show existing fallback if present
-                const parent = img.parentElement;
-                if (parent) {
-                    const fallback = parent.querySelector('.image-fallback');
-                    if (fallback) {
-                        fallback.style.display = 'flex';
-                    }
-                }
-            });
+            // Charts print natively and video players are swapped for thumbnails by slide-common.css.
 
         } catch (e) {
             console.log('Error preparing slide for print:', e);

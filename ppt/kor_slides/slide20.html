@@ -56,7 +56,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920");
+        background-image: url("assets/bg_unsplash.jpg");
         background-size: cover;
         background-position: center;
         opacity: 0.1;
@@ -105,6 +105,8 @@
         border-radius: 8px;
     }
 </style>
+<link href="slide-common.css" rel="stylesheet"/>
+<script defer src="slide-common.js"></script>
 </head>
 <body>
 <div class="slide-container">
@@ -114,25 +116,29 @@
 <div class="absolute right-0 top-0 w-80 h-80 rounded-full blur-3xl pointer-events-none" style="background-color: rgba(6, 182, 212, 0.1);"></div>
 
 <!-- Header -->
-<div class="relative z-10 px-10 pt-5 pb-2 flex justify-between items-start">
-    <div>
-        <div class="flex items-center space-x-3 text-cyan-400 mb-1">
-            <span class="px-2 py-0.5 border border-cyan-500 rounded text-[10px] font-bold uppercase tracking-wider" style="background-color: rgba(6, 182, 212, 0.1);">Technical Approach</span>
-            <span class="text-[11px] text-gray-400 uppercase tracking-widest">Model Architecture & Optimization</span>
-        </div>
-        <h1 class="text-3xl font-black text-white font-['Montserrat'] mb-0.5">YOLOv7 Architecture Modification</h1>
-        <p class="text-base text-gray-300 font-light">활성화 함수 최적화를 통한 성능 개선</p>
-    </div>
-    <div class="text-right">
-        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg border border-green-700" style="background-color: rgba(34, 197, 94, 0.1);">
-            <i class="fa-solid fa-code-branch text-green-400 text-xs"></i>
-            <p class="text-xs font-medium text-green-300">SiLU → ELU</p>
-        </div>
-    </div>
+<div class="relative z-10 px-10 pt-5 mb-2 flex justify-between items-start">
+<div>
+<div class="flex items-center space-x-3 mb-1">
+<span class="px-2 py-0.5 border border-cyan-500 rounded text-xs font-bold uppercase tracking-wider text-cyan-400" style="background-color: rgba(6, 182, 212, 0.1);">Project 11 · Thesis 2/3</span>
+<span class="text-xs text-gray-400 uppercase tracking-widest">Model Architecture &amp; Optimization</span>
+</div>
+<h1 class="text-3xl font-black text-white font-['Montserrat'] leading-tight">YOLOv7 Architecture Modification</h1>
+<div class="flex items-center space-x-3 mt-1">
+<p class="text-sm text-gray-300 font-light">활성화 함수 최적화를 통한 성능 개선</p>
+<div class="h-3 w-px bg-gray-600"></div>
+<span class="text-xs text-cyan-300 font-medium px-2 py-0.5 rounded-full border border-cyan-500/30" style="background-color: rgba(15, 23, 42, 0.6);">Master's Thesis</span>
+</div>
+</div>
+<div class="text-right shrink-0 pl-4">
+<div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg border border-slate-700" style="background-color: rgba(30, 41, 59, 0.8);">
+<i class="fa-solid fa-code-branch text-cyan-400 text-xs"></i>
+<p class="text-xs font-medium text-white whitespace-nowrap">SiLU → ELU</p>
+</div>
+</div>
 </div>
 
 <!-- Main Content -->
-<div class="relative z-10 flex flex-1 px-10 pb-3 gap-4">
+<div class="relative z-10 flex flex-1 min-h-0 px-10 pb-5 gap-4">
     <!-- Left Column: Architecture -->
     <div class="w-[48%] flex flex-col gap-2">
         <!-- YOLOv7 Structure -->
@@ -189,15 +195,15 @@
             <div class="flex gap-2 text-center">
                 <div class="bg-slate-800/50 rounded-lg px-2 py-1 flex-1">
                     <p class="text-sm font-bold text-orange-300 font-['Montserrat']">Fast</p>
-                    <p class="text-[9px] text-gray-400">Real-time</p>
+                    <p class="text-[10px] text-gray-400">Real-time</p>
                 </div>
                 <div class="bg-slate-800/50 rounded-lg px-2 py-1 flex-1">
                     <p class="text-sm font-bold text-orange-300 font-['Montserrat']">Accurate</p>
-                    <p class="text-[9px] text-gray-400">High mAP</p>
+                    <p class="text-[10px] text-gray-400">High mAP</p>
                 </div>
                 <div class="bg-slate-800/50 rounded-lg px-2 py-1 flex-1">
                     <p class="text-sm font-bold text-orange-300 font-['Montserrat']">ELAN</p>
-                    <p class="text-[9px] text-gray-400">Efficient</p>
+                    <p class="text-[10px] text-gray-400">Efficient</p>
                 </div>
             </div>
         </div>
@@ -339,13 +345,6 @@
     </div>
 </div>
 
-<!-- Footer -->
-<div class="relative z-10 px-10 pb-2">
-    <div class="flex justify-between items-center text-[9px] text-gray-500">
-        <span>Master's Thesis | Texas A&M University | Mechanical Engineering</span>
-        <span class="text-cyan-400 font-medium">2 / 3</span>
-    </div>
-</div>
 </div>
 </body>
 </html>
